@@ -437,7 +437,7 @@ In `macros.jinja`, we define this new macro `files_switch`.
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja`
 [source%nowrap, django]
 ----
-include::ROOT:example$macros.jinja[]
+include::example$macros.jinja[]
 ----
 
 === How to customise the `source` further

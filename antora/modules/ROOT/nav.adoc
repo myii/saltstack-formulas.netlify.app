@@ -1,6 +1,6 @@
 .General
-* xref:ROOT:README.adoc[README]
-* xref:ROOT:TOFS_pattern.adoc[TOFS: A pattern for using SaltStack]
+* xref:README.adoc[README]
+* xref:TOFS_pattern.adoc[TOFS: A pattern for using SaltStack]
 
 .Formulas
-* xref:template-formula:ROOT:README.adoc[template-formula]
+* xref:template-formula::README.adoc[template-formula]
