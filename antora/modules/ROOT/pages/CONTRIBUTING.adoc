@@ -232,28 +232,28 @@ we are using for some of the pages of this documentation.
 .RST page template
 [source%nowrap, rest]
 ----
-.. _template: # <1>
+.. _template: <1>
 
-[Page title] # <2>
+[Page title] <2>
 ============
 
-[Introductory paragraph] # <3>
+[Introductory paragraph] <3>
 
-.. contents:: **Table of Contents** # <4>
+.. contents:: **Table of Contents** <4>
 
-[Heading 2] # <5>
+[Heading 2] <5>
 -----------
 
-[Heading 3] # <5>
+[Heading 3] <5>
 ^^^^^^^^^^^
 
-[Heading 4] # <5>
+[Heading 4] <5>
 ~~~~~~~~~~~
 
-[Heading 5] # <6>
+[Heading 5] <6>
 """""""""""
 
-[Heading 6] # <6>
+[Heading 6] <6>
 ###########
 ----
 
