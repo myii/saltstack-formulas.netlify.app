@@ -10,7 +10,7 @@ title: SaltStack Formulas
 # (for example, to document multiple versions of some software),
 # you can ignore this field.
 # Otherwise, change "master" to a specific version.
-version: 'latest'
+version: '1.0.0'
 
 # We encourage you to name the index page as "index.adoc". If you absolutely
 # have to use a different name, please reflect it here. You can ignore this

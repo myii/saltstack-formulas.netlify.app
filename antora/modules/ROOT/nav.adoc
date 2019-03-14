@@ -7,6 +7,11 @@
 ** xref:CONTRIBUTING.adoc#documentation[Documentation]
 *** xref:CONTRIBUTING.adoc#saltstack_formulas_rst_page_template[RST page template]
 * xref:TOFS_pattern.adoc[TOFS: A pattern for using SaltStack]
+** xref:TOFS_pattern.adoc#before_tofs[Before TOFS]
+** xref:TOFS_pattern.adoc#template_override[Template Override]
+** xref:TOFS_pattern.adoc#files_switch[Files Switch]
+** xref:TOFS_pattern.adoc#files_switch_macro[Files Switch macro]
+** xref:TOFS_pattern.adoc#customise_source[Customise `source` further]
 
 .Formulas
 * xref:template-formula::README.adoc[template-formula]
