@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TOFS: A pattern for using SaltStack :: SaltStack Formulas</title>
+    <link rel="canonical" href="https://saltstack-formulas.netlify.app/main/1.0.3/TOFS_pattern.html">
+    <link rel="prev" href="CONTRIBUTING.html">
+    <link rel="next" href="../../template-formula/1.3.10/README.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://saltstack-formulas.netlify.app">SaltStack Formulas</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="1.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="README.html">SaltStack Formulas</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html">How to contribute</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html#commit_message_formatting">Commit message formatting</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#automatic_version_bump">Automatic version bump</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#commit_type_vs_version_bump">Commit type vs. version bump</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html#documentation">Documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#saltstack_formulas_rst_page_template">RST page template</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="TOFS_pattern.html">TOFS: A pattern for using SaltStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#before_tofs">Before TOFS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#template_override">Template Override</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#files_switch">Files Switch</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#files_switch_macro">Files Switch macro</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#customise_source">Customise <code>source</code> further</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Formulas</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../template-formula/1.3.10/README.html">template-formula</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SaltStack Formulas</span>
+    <span class="version">1.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../1.0.3/README.html">SaltStack Formulas</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../1.0.3/README.html">1.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.2/README.html">1.0.2</a>
+        </li>
+        <li class="version is-current">
+          <a href="README.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../template-formula/1.3.10/README.html">template-formula</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../template-formula/1.3.10/README.html">1.3.10</a>
+        </li>
+        <li class="version">
+          <a href="../../template-formula/1.3.9/README.html">1.3.9</a>
+        </li>
+        <li class="version">
+          <a href="../../template-formula/1.3.8/README.html">1.3.8</a>
+        </li>
+        <li class="version">
+          <a href="../../template-formula/1.3.7/README.html">1.3.7</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../1.0.3/README.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="README.html">SaltStack Formulas</a></li>
+    <li>General</li>
+    <li><a href="TOFS_pattern.html">TOFS: A pattern for using SaltStack</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../1.0.3/TOFS_pattern.html">1.0.3</a>
+    <a class="version" href="../1.0.2/TOFS_pattern.html">1.0.2</a>
+    <a class="version is-current" href="TOFS_pattern.html">1.0.1</a>
+    <a class="version" href="../1.0.0/TOFS_pattern.html">1.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/myii/saltstack-formulas.netlify.app/blob/v1.0.1/antora/modules/ROOT/pages/TOFS_pattern.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">TOFS: A pattern for using SaltStack</h1>
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch left">
+<caption class="title">Table 1. Authors</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 25%;">
+<col style="width: 35%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle"></th>
+<th class="tableblock halign-left valign-middle">Person</th>
+<th class="tableblock halign-left valign-middle">Contact</th>
+<th class="tableblock halign-right valign-middle">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Authored by</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Roberto Moreda</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:moreda@allenta.com">moreda@allenta.com</a></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">29/12/2014</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Modified by</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Daniel Dehennin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:daniel.dehennin@baby-gnu.org">daniel.dehennin@baby-gnu.org</a></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">07/02/2019</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Modified by</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imran Iqbal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/myii" class="bare">https://github.com/myii</a></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">23/02/2019</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All that follows is a proposal based on my experience with
+<a href="http://www.saltstack.com/">SaltStack</a>. The good thing of a piece of
+software like this is that you can "bend it" to suit your needs in many
+possible ways, and this is one of them. All the recommendations and
+thoughts are given "as it is" with no warranty of any type.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_of_values_in_pillar_vs_templates_in_file_roots"><a class="anchor" href="#_usage_of_values_in_pillar_vs_templates_in_file_roots"></a>1. Usage of values in pillar vs templates in <code>file_roots</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Among other functions, the <em>master</em> (or <em>salt-master</em>) serves files to
+the <em>minions</em> (or <em>salt-minions</em>). The
+<a href="http://docs.saltstack.com/en/latest/ref/file_server/file_roots.html">file_roots</a>
+is the list of directories used in sequence to find a file when a minion
+requires it: the first match is served to the minion. Those files could
+be
+<a href="http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html">state
+files</a> or configuration templates, among others.</p>
+</div>
+<div class="paragraph">
+<p>Using SaltStack is a simple and effective way to implement configuration
+management, but even in a
+<a href="http://en.wikipedia.org/wiki/Multitenancy">non-multitenant</a> scenario, it
+is not a good idea to generally access some data (e.g. the database
+password in our <a href="http://www.zabbix.com/">Zabbix</a> server configuration file
+or the private key of our <a href="http://nginx.org/en/">Nginx</a> TLS certificate).</p>
+</div>
+<div class="paragraph">
+<p>To avoid this situation we can use the
+<a href="http://docs.saltstack.com/en/latest/topics/pillar/">pillar mechanism</a>,
+which is designed to provide controlled access to data from the minions
+based on some selection rules. As pillar data could be easily integrated
+in the
+<a href="http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html">Jinja</a>
+templates, it is a good mechanism to store values to be used in the
+final rendering of state files and templates.</p>
+</div>
+<div class="paragraph">
+<p>There are a variety of approaches on the usage of pillar and templates
+as seen in the
+<a href="https://github.com/saltstack-formulas">saltstack-formulas</a>' repositories.
+<a href="https://github.com/saltstack-formulas/nginx-formula/pull/18">Some</a>
+<a href="https://github.com/saltstack-formulas/php-formula/pull/14">developments</a>
+stress the initial purpose of pillar data into a storage for most of the
+possible variables for a determined system configuration. This, in my
+opinion, is shifting too much load from the original template files
+approach. Adding up some
+<a href="https://github.com/spsoit/nginx-formula/blob/81de880fe0276dd9488ffa15bc78944c0fc2b919/nginx/ng/files/nginx.conf">non-trivial Jinja</a>
+code as essential part of composing the state file definitely
+makes SaltStack state files (hence formulas) more difficult to read. The
+extreme of this approach is that we could end up with a new render
+mechanism, implemented in Jinja, storing everything needed in pillar
+data to compose configurations. Additionally, we are establishing a
+strong dependency with the Jinja renderer.</p>
+</div>
+<div class="paragraph">
+<p>In opposition to the <em>put the code in file_roots and the data in
+pillars</em> approach, there is the <em>pillar as a store for a set of
+key-values</em> approach. A full-blown configuration file abstracted in
+pillar and jinja is complicated to develop, understand and maintain. I
+think a better and simpler approach is to keep a configuration file
+templated using just a basic (non-extensive but extensible) set of
+pillar values.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_on_the_reusability_of_saltstack_state_files"><a class="anchor" href="#_on_the_reusability_of_saltstack_state_files"></a>2. On the reusability of SaltStack state files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is a brilliant initiative of the SaltStack community called
+<a href="https://github.com/saltstack-formulas">salt-formulas</a>. Their goal is to
+provide state files, pillar examples and configuration templates ready
+to be used for provisioning. I am a contributor for two small ones:
+<a href="https://github.com/saltstack-formulas/zabbix-formula">zabbix-formula</a> and
+<a href="https://github.com/saltstack-formulas/varnish-formula">varnish-formula</a>.</p>
+</div>
+<div class="paragraph">
+<p>The
+<a href="http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html">design
+guidelines</a> for formulas are clear in many aspects and it is a
+recommended reading for anyone willing to write state files, even
+non-formulaic ones.</p>
+</div>
+<div class="paragraph">
+<p>In the next section, I am going to describe my proposal to extend
+further the reusability of formulas, suggesting some patterns of usage.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_template_override_and_files_switch_tofs_pattern"><a class="anchor" href="#_the_template_override_and_files_switch_tofs_pattern"></a>3. The Template Override and Files Switch (TOFS) pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I understand a formula as a <strong>complete, independent set of SaltStack
+state and configuration template files sufficient to configure a
+system</strong>. A system could be something as simple as an NTP server or some
+other much more complex service that requires many state and
+configuration template files.</p>
+</div>
+<div class="paragraph">
+<p>The customization of a formula should be done mainly by providing pillar
+data used later to render either the state or the configuration template
+files.</p>
+</div>
+<div class="sect2">
+<h3 id="before_tofs"><a class="anchor" href="#before_tofs"></a>3.1. Example: NTP before applying TOFS</h3>
+<div class="paragraph">
+<p>Let&#8217;s work with the NTP example. A basic formula that follows the
+<a href="http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html">design
+guidelines</a> has the following files and directories tree:</p>
+</div>
+<div class="listingblock">
+<div class="title">Directory and file tree for NTP</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">/srv/saltstack/salt-formulas/ntp-saltstack-formula/
+  ntp/
+    map.jinja
+    init.sls
+    conf.sls
+    files/
+      default/
+        etc/
+          ntp.conf.jinja</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to use it, let&#8217;s assume a
+<a href="http://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html">masterless
+configuration</a>:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/etc/salt/minion</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">pillar_roots:
+  base:
+    - /srv/saltstack/pillar
+file_client: local
+file_roots:
+  base:
+    - /srv/saltstack/salt
+    - /srv/saltstack/salt-formulas/ntp-saltstack-formula</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/map.jinja</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-django hljs" data-lang="django">{%- set ntp = salt['grains.filter_by']({
+  'default': {
+    'pkg': 'ntp',
+    'service': 'ntp',
+    'config': '/etc/ntp.conf',
+  },
+}, merge=salt['pillar.get']('ntp:lookup')) %}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>init.sls</code> we have the minimal states required to have NTP
+configured. In many cases <code>init.sls</code> is almost equivalent to an
+<code>apt-get install</code> or a <code>yum install</code> of the package.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/init.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">{%- from 'ntp/map.jinja' import ntp with context %}
+
+Install NTP:
+  pkg.installed:
+    - name: {{ ntp.pkg }}
+
+Enable and start NTP:
+  service.running:
+    - name: {{ ntp.service }}
+    - enabled: True
+    - require:
+      - pkg: Install NTP package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>conf.sls</code> we have the configuration states. In most cases, that is
+just managing configuration file templates and making them to be watched
+by the service.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">include:
+  - ntp
+
+{%- from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
+    - source: salt://ntp/files/default/etc/ntp.conf.jinja
+    - watch_in:
+      - service: Enable and start NTP service
+    - require:
+      - pkg: Install NTP package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Under <code>files/default</code>, there is a structure that mimics the one in the
+minion in order to avoid clashes and confusion on where to put the
+needed templates. There you can find a mostly standard template for the
+configuration file.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/default/etc/ntp.conf.jinja</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-django hljs" data-lang="django">{#- Managed by saltstack #}
+{#- Edit pillars or override this template in saltstack if you need customization #}
+{%- set settings = salt['pillar.get']('ntp', {}) %}
+{%- set default_servers = ['0.ubuntu.pool.ntp.org',
+                          '1.ubuntu.pool.ntp.org',
+                          '2.ubuntu.pool.ntp.org',
+                          '3.ubuntu.pool.ntp.org'] %}
+
+driftfile /var/lib/ntp/ntp.drift
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+{%- for server in settings.get('servers', default_servers) %}
+server {{ server }}
+{%- endfor %}
+
+restrict -4 default kod notrap nomodify nopeer noquery
+restrict -6 default kod notrap nomodify nopeer noquery
+
+restrict 127.0.0.1
+restrict ::1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With all this, it is easy to install and configure a simple NTP server
+by just running <code>salt-call state.sls ntp.conf</code>: the package will be
+installed, the service will be running and the configuration should be
+correct for most of cases, even without pillar data.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can define a highstate in <code>top.sls</code>
+and run <code>salt-call state.highstate</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt/top.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">base:
+  '*':
+    - ntp.conf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Customizing the formula just with pillar data</strong>, we have the option to
+define the NTP servers.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/pillar/top.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">base:
+  '*':
+    - ntp</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/pillar/ntp.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">ntp:
+  servers:
+    - 0.ch.pool.ntp.org
+    - 1.ch.pool.ntp.org
+    - 2.ch.pool.ntp.org
+    - 3.ch.pool.ntp.org</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="template_override"><a class="anchor" href="#template_override"></a>3.2. Template Override</h3>
+<div class="paragraph">
+<p>If the customization based on pillar data is not enough, we can override
+the template by creating a new one.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-django hljs" data-lang="django">{#- Managed by saltstack #}
+{#- Edit pillars or override this template in saltstack if you need customization #}
+
+{#- Some bizarre configurations here #}
+{#- ... #}
+
+{%- for server in settings.get('servers', default_servers) %}
+server {{ server }}
+{%- endfor %}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This way we are locally <strong>overriding the template files</strong> offered by the
+formula in order to make a more complex adaptation. Of course, this
+could be applied as well to any of the files, including the state files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="files_switch"><a class="anchor" href="#files_switch"></a>3.3. Files Switch</h3>
+<div class="paragraph">
+<p>To bring some order into the set of template files included in a
+formula, as we commented, we suggest having a similar structure to a
+normal final file system under <code>files/default</code>.</p>
+</div>
+<div class="paragraph">
+<p>We can make different templates coexist for different minions,
+classified by any
+<a href="http://docs.saltstack.com/en/latest/topics/targeting/grains.html">grain</a>
+value, by simply creating new directories under <code>files</code>. This mechanism
+is based on <strong>using values of some grains as a switch for the directories
+under <code>files/</code></strong>.</p>
+</div>
+<div class="paragraph">
+<p>If we decide that we want <code>os_family</code> as switch, then we could provide
+the formula template variants for both the <code>RedHat</code> and <code>Debian</code>
+families.</p>
+</div>
+<div class="listingblock">
+<div class="title">Directory and file tree for the <code>files</code> sub-directory</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/
+  default/
+    etc/
+      ntp.conf.jinja
+  RedHat/
+    etc/
+      ntp.conf.jinja
+  Debian/
+    etc/
+      ntp.conf.jinja</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make this work we need a <code>conf.sls</code> state file that takes a list of
+possible files as the configuration template.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">include:
+  - ntp
+
+{%- from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
+    - source:
+      - salt://ntp/files/{{ grains.get('os_family', 'default') }}/etc/ntp.conf.jinja
+      - salt://ntp/files/default/etc/ntp.conf.jinja
+    - watch_in:
+      - service: Enable and start NTP service
+    - require:
+      - pkg: Install NTP package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If we want to cover the possibility of a special template for a minion
+identified by <code>node01</code> then we could have a specific template.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-django hljs" data-lang="django">{#- Managed by saltstack #}
+{#- Edit pillars or override this template in saltstack if you need customization #}
+
+{#- Some crazy configurations here for node01 #}
+{#- ... #}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make this work we could write a specially crafted <code>conf.sls</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">include:
+  - ntp
+
+{%- from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
+    - source:
+      - salt://ntp/files/{{ grains.get('id') }}/etc/ntp.conf.jinja
+      - salt://ntp/files/{{ grains.get('os_family') }}/etc/ntp.conf.jinja
+      - salt://ntp/files/default/etc/ntp.conf.jinja
+    - watch_in:
+      - service: Enable and start NTP service
+    - require:
+      - pkg: Install NTP package</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="files_switch_macro"><a class="anchor" href="#files_switch_macro"></a>3.4. Using the <code>files_switch</code> macro</h3>
+<div class="paragraph">
+<p>We can simplify the <code>conf.sls</code> with the new <code>files_switch</code> macro to use
+in the <code>source</code> parameter for the <code>file.managed</code> state.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">include:
+  - ntp
+
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/macros.jinja' import files_switch %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
+    - source: {{ files_switch(
+                  salt['config.get'](
+                      tplroot ~ ':tofs:source_files:Configure NTP',
+                      ['/etc/ntp.conf.jinja']
+                  )
+            ) }}
+    - watch_in:
+      - service: Enable and start NTP service
+    - require:
+      - pkg: Install NTP package</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This uses <code>config.get</code>, searching for <code>ntp:tofs:source_files:Configure NTP</code>
+to determine the list of template files to use.</p>
+</li>
+<li>
+<p>If this does not yield any results, the default of
+<code>['/etc/ntp.conf.jinja']</code> will be used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In <code>macros.jinja</code>, we define this new macro <code>files_switch</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-django hljs" data-lang="django">{%- macro files_switch(files,
+                       default_files_switch=['id', 'os_family'],
+                       indent_width=6) %}
+  {#-
+    Returns a valid value for the "source" parameter of a "file.managed"
+    state function. This makes easier the usage of the Template Override and
+    Files Switch (TOFS) pattern.
+
+    Params:
+      * files: ordered list of files to look for
+      * default_files_switch: if there's no pillar
+        '&lt;tplroot&gt;:tofs:files_switch' this is the ordered list of grains to
+        use as selector switch of the directories under
+        "&lt;path_prefix&gt;/files"
+      * indent_witdh: indentation of the result value to conform to YAML
+
+    Example (based on a `tplroot` of `xxx`):
+
+    If we have a state:
+
+      Deploy configuration:
+        file.managed:
+          - name: /etc/yyy/zzz.conf
+          - source: {{ files_switch(
+                          salt['config.get'](
+                              tplroot ~ ':tofs:files:Deploy configuration',
+                              ['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja']
+                          )
+                    ) }}
+          - template: jinja
+
+    In a minion with id=theminion and os_family=RedHat, it's going to be
+    rendered as:
+
+      Deploy configuration:
+        file.managed:
+          - name: /etc/yyy/zzz.conf
+          - source:
+            - salt://xxx/files/theminion/etc/yyy/zzz.conf
+            - salt://xxx/files/theminion/etc/yyy/zzz.conf.jinja
+            - salt://xxx/files/RedHat/etc/yyy/zzz.conf
+            - salt://xxx/files/RedHat/etc/yyy/zzz.conf.jinja
+            - salt://xxx/files/default/etc/yyy/zzz.conf
+            - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
+          - template: jinja
+  #}
+  {#- Get the `tplroot` from `tpldir` #}
+  {%- set tplroot = tpldir.split('/')[0] %}
+  {%- set path_prefix = salt['config.get'](tplroot ~ ':tofs:path_prefix', tplroot) %}
+  {%- set files_dir = salt['config.get'](tplroot ~ ':tofs:dirs:files', 'files') %}
+  {%- set files_switch_list = salt['config.get'](
+      tplroot ~ ':tofs:files_switch',
+      default_files_switch
+  ) %}
+  {#- Only add to [''] when supporting older TOFS implementations #}
+  {%- for path_prefix_ext in [''] %}
+    {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
+    {#- For older TOFS implementation, use `files_switch` from the pillar #}
+    {#- Use the default, new method otherwise #}
+    {%- set fsl = salt['pillar.get'](
+        tplroot ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
+        files_switch_list
+    ) %}
+    {#- Append an empty value to evaluate as `default` in the loop below #}
+    {%- if '' not in fsl %}
+      {%- do fsl.append('') %}
+    {%- endif %}
+    {%- for fs in fsl %}
+      {%- for file in files %}
+        {%- if fs %}
+          {%- set fs_dir = salt['config.get'](fs, fs) %}
+        {%- else %}
+          {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
+        {%- endif %}
+        {%- set url = '- salt://' ~ '/'.join([
+            path_prefix_inc_ext,
+            files_dir,
+            fs_dir,
+            file.lstrip('/')
+        ]) %}
+{{ url | indent(indent_width, true) }}
+      {%- endfor %}
+    {%- endfor %}
+  {%- endfor %}
+{%- endmacro %}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customise_source"><a class="anchor" href="#customise_source"></a>3.5. How to customise the <code>source</code> further</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Scenario for the examples below</div>
+<div class="paragraph">
+<p>The examples below are based on an <code>Ubuntu</code> minion called <code>theminion</code>
+being configured via. pillar.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using the default settings of the <code>files_switch</code> macro above, the
+<code>source</code> will be:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>source</code> (default)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    - source:
+      - salt://ntp/files/theminion/etc/ntp.conf.jinja
+      - salt://ntp/files/Debian/etc/ntp.conf.jinja
+      - salt://ntp/files/default/etc/ntp.conf.jinja</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_customise_files"><a class="anchor" href="#_customise_files"></a>3.5.1. Customise <code>files</code></h4>
+<div class="paragraph">
+<p>The <code>files</code> portion can be customised:</p>
+</div>
+<div class="listingblock">
+<div class="title">Customise <code>files</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">ntp:
+  tofs:
+    dirs:
+      files: files_alt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resulting in:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>source</code> with <code>files</code> customised</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    - source:
+      - salt://ntp/files_alt/theminion/etc/ntp.conf.jinja
+      - salt://ntp/files_alt/Debian/etc/ntp.conf.jinja
+      - salt://ntp/files_alt/default/etc/ntp.conf.jinja</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_customise_the_use_of_grains"><a class="anchor" href="#_customise_the_use_of_grains"></a>3.5.2. Customise the use of grains</h4>
+<div class="paragraph">
+<p>Grains can be customised and even arbitrary paths can be supplied:</p>
+</div>
+<div class="listingblock">
+<div class="title">Customise <code>grains</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">ntp:
+  tofs:
+    files_switch:
+      - any/path/can/be/used/here
+      - id
+      - os
+      - os_family</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resulting in:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>source</code> with <code>grains</code> customised</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    - source:
+      - salt://ntp/files/any/path/can/be/used/here/etc/ntp.conf.jinja
+      - salt://ntp/files/theminion/etc/ntp.conf.jinja
+      - salt://ntp/files/Ubuntu/etc/ntp.conf.jinja
+      - salt://ntp/files/Debian/etc/ntp.conf.jinja
+      - salt://ntp/files/default/etc/ntp.conf.jinja</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_customise_the_default_path"><a class="anchor" href="#_customise_the_default_path"></a>3.5.3. Customise the <code>default</code> path</h4>
+<div class="paragraph">
+<p>The <code>default</code> portion of the path can be customised:</p>
+</div>
+<div class="listingblock">
+<div class="title">Customise <code>default</code> directory</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">ntp:
+  tofs:
+    dirs:
+      default: default_alt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resulting in:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>source</code> with <code>default</code> directory customised</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    - source:
+      ...
+      - salt://ntp/files/default_alt/etc/ntp.conf.jinja</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_customise_the_list_of_source_files"><a class="anchor" href="#_customise_the_list_of_source_files"></a>3.5.4. Customise the list of <code>source_files</code></h4>
+<div class="paragraph">
+<p>The list of <code>source_files</code> can be given:</p>
+</div>
+<div class="listingblock">
+<div class="title">Customise <code>source_files</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">ntp:
+  tofs:
+    source_files:
+      Configure NTP:
+        - '/etc/ntp.conf.jinja'
+        - '/etc/ntp.conf_alt.jinja'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resulting in:</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>source</code> with <code>source_files</code> customised</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    - source:
+      - salt://ntp/files/theminion/etc/ntp.conf.jinja
+      - salt://ntp/files/theminion/etc/ntp.conf_alt.jinja
+      - salt://ntp/files/Debian/etc/ntp.conf.jinja
+      - salt://ntp/files/Debian/etc/ntp.conf_alt.jinja
+      - salt://ntp/files/default/etc/ntp.conf.jinja
+      - salt://ntp/files/default/etc/ntp.conf_alt.jinja</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="CONTRIBUTING.html">How to contribute</a></span>
+  <span class="next"><a href="../../template-formula/1.3.10/README.html">template-formula</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
