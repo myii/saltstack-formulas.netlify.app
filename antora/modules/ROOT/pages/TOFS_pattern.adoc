@@ -30,10 +30,6 @@ software like this is that you can "bend it" to suit your needs in many
 possible ways, and this is one of them. All the recommendations and
 thoughts are given "as it is" with no warranty of any type.
 
-// This `toc` will not show up in GitHub directly, only in the GitHub pages.
-// Antora applies all of the `toc` settings when rendering the HTML.
-toc::[]
-
 == Usage of values in pillar vs templates in `file_roots`
 
 Among other functions, the _master_ (or _salt-master_) serves files to
@@ -124,7 +120,7 @@ http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html
 guidelines] has the following files and directories tree:
 
 .Directory and file tree for NTP
-[source%nowrap, bash]
+[source, bash]
 ----
 /srv/saltstack/salt-formulas/ntp-saltstack-formula/
   ntp/
@@ -142,7 +138,7 @@ http://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html[masterless
 configuration]:
 
 .`/etc/salt/minion`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 pillar_roots:
   base:
@@ -155,7 +151,7 @@ file_roots:
 ----
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/map.jinja`
-[source%nowrap, django]
+[source, django]
 ----
 {%- set ntp = salt['grains.filter_by']({
   'default': {
@@ -171,7 +167,7 @@ configured. In many cases `init.sls` is almost equivalent to an
 `apt-get install` or a `yum install` of the package.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/init.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 {%- from 'ntp/map.jinja' import ntp with context %}
 
@@ -192,7 +188,7 @@ just managing configuration file templates and making them to be watched
 by the service.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 include:
   - ntp
@@ -216,7 +212,7 @@ needed templates. There you can find a mostly standard template for the
 configuration file.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/default/etc/ntp.conf.jinja`
-[source%nowrap, django]
+[source, django]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -252,7 +248,7 @@ Alternatively, you can define a highstate in `top.sls`
 and run `salt-call state.highstate`.
 
 .`/srv/saltstack/salt/top.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 base:
   '*':
@@ -263,7 +259,7 @@ base:
 define the NTP servers.
 
 .`/srv/saltstack/pillar/top.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 base:
   '*':
@@ -271,7 +267,7 @@ base:
 ----
 
 .`/srv/saltstack/pillar/ntp.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 ntp:
   servers:
@@ -288,7 +284,7 @@ If the customization based on pillar data is not enough, we can override
 the template by creating a new one.
 
 .`/srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja`
-[source%nowrap, django]
+[source, django]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -324,7 +320,7 @@ the formula template variants for both the `RedHat` and `Debian`
 families.
 
 .Directory and file tree for the `files` sub-directory
-[source%nowrap, bash]
+[source, bash]
 ----
 /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/
   default/
@@ -342,7 +338,7 @@ To make this work we need a `conf.sls` state file that takes a list of
 possible files as the configuration template.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 include:
   - ntp
@@ -366,7 +362,7 @@ If we want to cover the possibility of a special template for a minion
 identified by `node01` then we could have a specific template.
 
 .`/srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja`
-[source%nowrap, django]
+[source, django]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -378,7 +374,7 @@ identified by `node01` then we could have a specific template.
 To make this work we could write a specially crafted `conf.sls`.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 include:
   - ntp
@@ -406,7 +402,7 @@ We can simplify the `conf.sls` with the new `files_switch` macro to use
 in the `source` parameter for the `file.managed` state.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 include:
   - ntp
@@ -439,7 +435,7 @@ to determine the list of template files to use.
 In `macros.jinja`, we define this new macro `files_switch`.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja`
-[source%nowrap, django]
+[source, django]
 ----
 include::example$macros.jinja[]
 ----
@@ -458,7 +454,7 @@ Using the default settings of the `files_switch` macro above, the
 `source` will be:
 
 .`source` (default)
-[source%nowrap, yaml]
+[source, yaml]
 ----
     - source:
       - salt://ntp/files/theminion/etc/ntp.conf.jinja
@@ -471,7 +467,7 @@ Using the default settings of the `files_switch` macro above, the
 The `files` portion can be customised:
 
 .Customise `files`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 ntp:
   tofs:
@@ -482,7 +478,7 @@ ntp:
 Resulting in:
 
 .`source` with `files` customised
-[source%nowrap, yaml]
+[source, yaml]
 ----
     - source:
       - salt://ntp/files_alt/theminion/etc/ntp.conf.jinja
@@ -495,7 +491,7 @@ Resulting in:
 Grains can be customised and even arbitrary paths can be supplied:
 
 .Customise `grains`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 ntp:
   tofs:
@@ -509,7 +505,7 @@ ntp:
 Resulting in:
 
 .`source` with `grains` customised
-[source%nowrap, yaml]
+[source, yaml]
 ----
     - source:
       - salt://ntp/files/any/path/can/be/used/here/etc/ntp.conf.jinja
@@ -524,7 +520,7 @@ Resulting in:
 The `default` portion of the path can be customised:
 
 .Customise `default` directory
-[source%nowrap, yaml]
+[source, yaml]
 ----
 ntp:
   tofs:
@@ -535,7 +531,7 @@ ntp:
 Resulting in:
 
 .`source` with `default` directory customised
-[source%nowrap, yaml]
+[source, yaml]
 ----
     - source:
       ...
@@ -547,7 +543,7 @@ Resulting in:
 The list of `source_files` can be given:
 
 .Customise `source_files`
-[source%nowrap, yaml]
+[source, yaml]
 ----
 ntp:
   tofs:
@@ -560,7 +556,7 @@ ntp:
 Resulting in:
 
 .`source` with `source_files` customised
-[source%nowrap, yaml]
+[source, yaml]
 ----
     - source:
       - salt://ntp/files/theminion/etc/ntp.conf.jinja
