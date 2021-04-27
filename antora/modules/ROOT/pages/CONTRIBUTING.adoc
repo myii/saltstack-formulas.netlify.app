@@ -85,7 +85,7 @@ https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type[type]
 of the commit:
 
 .Commit type vs. version bump
-[format="psv", separator="|", frame="all", grid="all", float="left", options="header", cols="<.<14m,<.<25d,<.<37d,^.<12m,^.<12m", width="100"]
+[format="psv", separator="|", frame="all", grid="all", options="header", cols="<.<14m,<.<25d,<.<37d,^.<12m,^.<12m", width="100"]
 |===
 <.^|Type
 <.^|Heading
