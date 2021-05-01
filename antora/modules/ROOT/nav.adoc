@@ -1,6 +1,3 @@
-:url_github_org: https://github.com/saltstack-formulas
-:url_gitlab_org: https://gitlab.com/saltstack-formulas
-
 '''
 
 .General
@@ -23,7 +20,7 @@
 
 '''
 
-.link:{url_github_org}["GitHub organisation", window="_blank"]
+.GitHub organisation
 
 * Formulas
 ** xref:accumulo-formula::README.adoc[accumulo-formula]
@@ -376,7 +373,7 @@
 
 '''
 
-.link:{url_gitlab_org}["GitLab organisation", window="_blank"]
+.GitLab organisation
 
 * Build tools
 ** xref:salt-image-builder::README.adoc[salt-image-builder]
