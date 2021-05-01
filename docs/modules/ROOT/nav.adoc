@@ -2,8 +2,6 @@
 
 .General
 
-* xref:README.adoc[README]
-
 * xref:CONTRIBUTING.adoc[How to contribute]
 ** xref:CONTRIBUTING.adoc#commit_message_formatting[Commit message formatting]
 *** xref:CONTRIBUTING.adoc#automatic_version_bump[Automatic version bump]
