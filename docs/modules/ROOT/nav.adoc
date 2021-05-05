@@ -16,6 +16,8 @@
 ** xref:TOFS_pattern.adoc#files_switch_macro[Files Switch macro]
 ** xref:TOFS_pattern.adoc#customise_source[Customise `source` further]
 
+* xref:map.jinja.adoc[]
+
 '''
 
 .GitHub organisation
