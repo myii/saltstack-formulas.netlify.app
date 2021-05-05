@@ -1,10 +1,11 @@
+---
 # Name will be mostly visible in the URL. Treat it as an indentifier.
 # Tip: If you want to use the local preview scripts that come with this repository,
 # please change this value in the site.yml file as well. (under site/start_page)
-name: main
+name: 'main'
 
 # Title will be visible on the page.
-title: SaltStack Formulas
+title: 'SaltStack Formulas'
 
 # If you don't plan to have multiple versions of the docs
 # (for example, to document multiple versions of some software),
@@ -15,9 +16,8 @@ version: '1.0.3'
 # We encourage you to name the index page as "index.adoc". If you absolutely
 # have to use a different name, please reflect it here. You can ignore this
 # field otherwise.
-start_page: index.adoc
+start_page: 'index.adoc'
 
 # This lists all the menu definitions of your component.
 nav:
-- modules/ROOT/nav.adoc
-# - modules/template-formula/nav.adoc
+  - 'modules/ROOT/nav.adoc'
