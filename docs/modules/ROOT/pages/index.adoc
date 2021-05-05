@@ -1,9 +1,53 @@
-= saltstack-formulas.netlify.app
+= SaltStack Formulas Documentation
 
-A SaltStack formula that is empty.
-It has dummy content to help with a quick start on a new formula and it serves
-as a style guide.
+.Work in progress
+[IMPORTANT]
+====
+Once this
+link:{url_antora_org}[Antora^]-based
+documentation site is up and running,
+this will be the main landing page.
 
-== Start here
+For the time being,
+it is being used for content that is currently being worked on,
+which will be made available from one of the pages in this site eventually.
+====
 
-Hello.
+== SaltStack
+
+=== SaltStack => Salt Project
+:url_saltstack_acquisition_by_vmware: https://www.vmware.com/support/acquisitions/saltstack.html
+
+.SaltStack is now known as Salt Project
+[NOTE]
+====
+Since the
+link:{url_saltstack_acquisition_by_vmware}[acquisition of SaltStack by VMware in October 2020^],
+_SaltStack_ was renamed to _Salt Project_.
+====
+
+=== Salt (software)
+
+The main software provided by the Salt Project is *Salt*,
+which is comparable to *Chef*, *Puppet* and *Ansible*.
+
+.What is Salt?
+"It's automation,
+infrastructure management,
+data-driven orchestration,
+remote execution,
+configuration management,
+and so much more."
+-- Salt Project, link:{url_saltproject_io}[saltproject.io^]
+
+Learn more about Salt at the link directly above.
+
+// == SaltStack Formulas
+//
+// == Documentation toolchain
+//
+// === Antora
+//
+// === Asciidoctor
+//
+// ==== Useful snippets
