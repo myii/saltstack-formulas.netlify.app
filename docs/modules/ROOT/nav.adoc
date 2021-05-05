@@ -20,7 +20,7 @@
 
 '''
 
-.GitHub organisation
+.GitHub repositories
 
 * Semantic-release formulas
 ** xref:apache-formula::README.adoc[apache-formula]
@@ -375,7 +375,7 @@
 
 '''
 
-.GitLab organisation
+.GitLab repositories
 
-* Build tools
+* CI tools
 ** xref:salt-image-builder::README.adoc[salt-image-builder]
