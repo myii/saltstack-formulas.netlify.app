@@ -151,7 +151,7 @@ file_roots:
 ----
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/map.jinja`
-[source, django]
+[source, jinja]
 ----
 {%- set ntp = salt['grains.filter_by']({
   'default': {
@@ -212,7 +212,7 @@ needed templates. There you can find a mostly standard template for the
 configuration file.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/default/etc/ntp.conf.jinja`
-[source, django]
+[source, jinja]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -284,7 +284,7 @@ If the customization based on pillar data is not enough, we can override
 the template by creating a new one.
 
 .`/srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja`
-[source, django]
+[source, jinja]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -362,7 +362,7 @@ If we want to cover the possibility of a special template for a minion
 identified by `node01` then we could have a specific template.
 
 .`/srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja`
-[source, django]
+[source, jinja]
 ----
 {#- Managed by saltstack #}
 {#- Edit pillars or override this template in saltstack if you need customization #}
@@ -435,7 +435,7 @@ to determine the list of template files to use.
 In `macros.jinja`, we define this new macro `files_switch`.
 
 .`/srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja`
-[source, django]
+[source, jinja]
 ----
 include::example$macros.jinja[]
 ----
