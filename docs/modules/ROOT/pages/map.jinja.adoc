@@ -1,6 +1,6 @@
 = `map.jinja`: gather formula configuration values
 
-.title_for_Admonition_Block
+.Newest `map.jinja` only available in a few formulas so far
 [NOTE]
 ====
 This document is specific to the newest `map.jinja` incarnation,
@@ -11,25 +11,25 @@ as well as the `template-formula` itself.
 ====
 
 The
-https://docs.saltproject.io/en/latest/topics/development/conventions/formulas.html#writing-formulas[documentation]
+https://docs.saltproject.io/en/latest/topics/development/conventions/formulas.html#writing-formulas[documentation^]
 explains the use of a `map.jinja` to gather parameters values for a
 formula.
 
-As https://docs.saltproject.io/en/latest/topics/pillar/[pillars] are
+As https://docs.saltproject.io/en/latest/topics/pillar/[pillars^] are
 rendered on the Salt master for every minion, this increases the load on
 the master as the pillar values and the number of minions grows.
 
 As a good practice, you should:
 
 * store non-secret data in YAML files distributed by the
-https://docs.saltproject.io/en/latest/ref/file_server[fileserver]
+https://docs.saltproject.io/en/latest/ref/file_server[fileserver^]
 * store secret data in:
-** https://docs.saltproject.io/en/latest/topics/pillar/[pillars] (and
+** https://docs.saltproject.io/en/latest/topics/pillar/[pillars^] (and
 look for the use of something like
-https://docs.saltproject.io/en/latest/ref/pillar/all/salt.pillar.vault.html[pillar.vault])
-** https://docs.saltproject.io/en/latest/topics/sdb/index.html[SDB] (and
+https://docs.saltproject.io/en/latest/ref/pillar/all/salt.pillar.vault.html[pillar.vault^])
+** https://docs.saltproject.io/en/latest/topics/sdb/index.html[SDB^] (and
 look for the use of something like
-https://docs.saltproject.io/en/latest/ref/sdb/all/salt.sdb.vault.html[sdb.vault])
+https://docs.saltproject.io/en/latest/ref/sdb/all/salt.sdb.vault.html[sdb.vault^])
 
 Current best practice is to let `map.jinja` handle parameters from all
 sources, to minimise the use of pillars, grains or configuration from
@@ -45,7 +45,7 @@ We will see a quick setup to configure the `TEMPLATE` formula for
 different DNS domain names and several roles.
 
 For this example, I'll define 2 kinds of
-https://docs.saltproject.io/en/latest/ref/file_server[fileserver]
+https://docs.saltproject.io/en/latest/ref/file_server[fileserver^]
 sources:
 
 [arabic]
@@ -53,19 +53,19 @@ sources:
 breaking my setup randomly at upstream update. they are the last sources
 where files are looked up
 . parameters of the formulas in the file backend
-https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html[roots]
+https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html[roots^]
 
 ==== Configure the fileserver backends
 
 I configure the
-https://docs.saltproject.io/en/latest/ref/file_server[fileserver]
+https://docs.saltproject.io/en/latest/ref/file_server[fileserver^]
 backends to serve:
 
 [arabic]
 . files from
-https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html[roots]
+https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html[roots^]
 first
-. https://docs.saltproject.io/en/latest/topics/tutorials/gitfs.html[gitfs]
+. https://docs.saltproject.io/en/latest/topics/tutorials/gitfs.html[gitfs^]
 repositories last
 
 Create the file `/etc/salt/master.d/fileserver.conf` and restart the
@@ -217,9 +217,9 @@ link:#_sources_of_configuration_values[Sources of configuration values].
 ==== Bind roles to minions
 
 We associate roles
-https://docs.saltproject.io/en/latest/topics/grains/[grains] to minion
+https://docs.saltproject.io/en/latest/topics/grains/[grains^] to minion
 using
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.append[grains.append].
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.append[grains.append^].
 
 For the servers:
 
@@ -240,22 +240,22 @@ Note
 Since we used `Y:C@roles`, `map.jinja` will do a
 `salt['config.get']('roles')` to retrieve the roles so you could use any
 other method to bind roles to minions
-(https://docs.saltproject.io/en/latest/topics/pillar/[pillars] or
-https://docs.saltproject.io/en/latest/topics/sdb/index.html[SDB]) but
-https://docs.saltproject.io/en/latest/topics/grains/[grains] seems to be
+(https://docs.saltproject.io/en/latest/topics/pillar/[pillars^] or
+https://docs.saltproject.io/en/latest/topics/sdb/index.html[SDB^]) but
+https://docs.saltproject.io/en/latest/topics/grains/[grains^] seems to be
 the preferred method.
 
 ==== Note for Microsoft Windows systems
 
 If you have a minion running under windows, you can't use colon `:` as a
 delimiter for grain path query (see
-https://github.com/saltstack/salt/issues/58726[bug 58726]) in which case
+https://github.com/saltstack/salt/issues/58726[bug 58726^]) in which case
 you should use an alternate delimiter:
 
 Modify `/srv/salt/parameters/map_jinja.yaml` to change the query for
 `dns:domain` to define the
 https://docs.saltproject.io/en/latest/topics/targeting/compound.html#alternate-delimiters[alternate
-delimiter]:
+delimiter^]:
 
 [source,yaml]
 ----
@@ -300,7 +300,7 @@ following layout:
 
 * a mandatory `values` key to store the configuration values
 * two optional keys to configure the use of
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge[salt.slsutil.merge]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge[salt.slsutil.merge^]
 ** an optional `strategy` key to configure the merging strategy, for
 example `strategy: 'recurse'`, the default is `smart`
 ** an optional `merge_lists` key to configure if lists should be merged
@@ -346,11 +346,11 @@ The `map.jinja` file aggregates configuration values from several
 sources:
 
 * YAML files stored in the
-https://docs.saltproject.io/en/latest/ref/file_server[fileserver]
-* https://docs.saltproject.io/en/latest/topics/pillar/[pillars]
-* https://docs.saltproject.io/en/latest/topics/grains/[grains]
+https://docs.saltproject.io/en/latest/ref/file_server[fileserver^]
+* https://docs.saltproject.io/en/latest/topics/pillar/[pillars^]
+* https://docs.saltproject.io/en/latest/topics/grains/[grains^]
 * configuration gathered with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^]
 
 For the values loaded from YAML files, `map.jinja` will automatically
 try to load a Jinja2 template with the same name as the YAML file with
@@ -389,32 +389,32 @@ Each source definition has the form
 `[<TYPE>[:<OPTION>[:<DELIMITER>]]@]<KEY>` where `<TYPE>` can be one of:
 
 * `Y` to load values from YAML files from the
-https://docs.saltproject.io/en/latest/ref/file_server[fileserver], this
+https://docs.saltproject.io/en/latest/ref/file_server[fileserver^], this
 is the default when no type is defined
 * `C` to lookup values with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^]
 * `G` to lookup values with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']^]
 * `I` to lookup values with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']^]
 
 The YAML type option can define the query method to lookup the key value
 to build the file name:
 
 * `C` to query with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']],
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^],
 this is the default when no query method is defined
 * `G` to query with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']^]
 * `I` to query with
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']^]
 
 The `C`, `G` or `I` types can define the `SUB` option to store values in
 the sub key `mapdata.<KEY>` instead of directly in `mapdata`.
 
 All types can define the `<DELIMITER>` option to use an
 https://docs.saltproject.io/en/latest/topics/targeting/compound.html#alternate-delimiters[alternate
-delimiter] of the `<KEY>`, for example: on windows system you can't use
+delimiter^] of the `<KEY>`, for example: on windows system you can't use
 colon `:` for YAML file path name and you should use something else like
 exclamation mark `!`.
 
@@ -489,7 +489,7 @@ if it exists
 * for `C`, `G` or `I` source type, lookup the value of
 `salt['<QUERY_METHOD>']('<KEY>')`
 . merge the loaded values with the previous ones using
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge[salt.slsutil.merge]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge[salt.slsutil.merge^]
 
 There will be no error if a YAML or Jinja2 file does not exists, they
 are all optional.
@@ -498,7 +498,7 @@ are all optional.
 
 For sources with of type `C` declared in `map_jinja:sources`, you can
 configure the `merge` option of
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^]
 by defining per formula `strategy` configuration key (retrieved with
 `salt['config.get'](tplroot ~ ':strategy')` with one of the following
 values:
@@ -542,14 +542,14 @@ overridden by a value loaded from
 `map.jinja` requires:
 
 * salt minion 2018.3.3 minimum to use the
-https://docs.saltproject.io/en/latest/topics/jinja/index.html#traverse[traverse]
+https://docs.saltproject.io/en/latest/topics/jinja/index.html#traverse[traverse^]
 jinja filter
 * to be located at the root of the formula named directory (e.g.
 `libvirt-formula/libvirt/map.jinja`)
 * the `libsaltcli.jinja` library, stored in the same directory, to
 disable the `merge` option of
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']]
-over https://docs.saltproject.io/en/latest/topics/ssh/[salt-ssh]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^]
+over https://docs.saltproject.io/en/latest/topics/ssh/[salt-ssh^]
 * the `libmapstack.jinja` library to load the configuration values
 * the `libmatchers.jinja` library used by `libmapstack.jinja` to parse
 compound like matchers
@@ -575,16 +575,16 @@ test-does-nothing-but-display-TEMPLATE-as-json:
 === Use formula configuration values in templates
 
 When you need to process salt templates, you should avoid calling
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get[salt['config.get']^]
 (or
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']]
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get[salt['pillar.get']^]
 and
-https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']])
+https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get[salt['grains.get']^])
 directly from the template. All the needed values should be available
 within the `mapdata` variable exported by `map.jinja`.
 
 Here is an example based on
-https://github.com/saltstack-formulas/template-formula/blob/master/TEMPLATE/config/file.sls[template-formula/TEMPLATE/config/file.sls]:
+https://github.com/saltstack-formulas/template-formula/blob/master/TEMPLATE/config/file.sls[template-formula/TEMPLATE/config/file.sls^]:
 
 [source,yaml]
 ----
