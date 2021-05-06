@@ -1,0 +1,4 @@
+.GitLab repositories
+
+* CI tools
+** xref:salt-image-builder::README.adoc[salt-image-builder]

@@ -20,4 +20,6 @@ start_page: 'index.adoc'
 
 # This lists all the menu definitions of your component.
 nav:
-  - 'modules/ROOT/nav.adoc'
+  - 'modules/ROOT/nav-general-formula-docs.adoc'
+  - 'modules/ROOT/nav-github.adoc'
+  - 'modules/ROOT/nav-gitlab.adoc'
