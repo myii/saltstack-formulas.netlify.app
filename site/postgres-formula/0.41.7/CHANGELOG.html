@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Changelog :: SaltStack Formulas</title>
+    <link rel="canonical" href="https://saltstack-formulas.netlify.app/postgres-formula/0.41.7/CHANGELOG.html">
+    <link rel="prev" href="README.html">
+    <link rel="next" href="AUTHORS.html">
+    <meta name="generator" content="Antora 3.0.0-alpha.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/site-extra.css">
+    <script>var uiRootPath = '../../_'</script>
+    <link rel="icon" href="../../_/img/ssf/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://saltstack-formulas.netlify.app">
+        <!-- <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:30px;height:30px;" />&#38;nbsp;SaltStack Formulas -->
+        <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:25px;height:25px;" />&nbsp;SaltStack Formulas
+      </a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- <div class="navbar&#45;item&#45;divider"></div>  -->
+        <!-- <a class="navbar&#45;item" href="#">Home</a> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Products</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Product A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Services</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Service A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Resources</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        
+        <!-- Have these in a separate `div`? -->
+
+        <!-- Repos -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://github.com/saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://gitlab.com/saltstack-formulas" target="_blank">
+          <!-- 714 x 660 -->
+          <!-- <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:32.5px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:27px;height:25px;" />
+        </a>
+
+        <!-- Pre-salted images and boxes -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://hub.docker.com/u/saltimages" target="_blank">
+          <!-- 1008 x 722 -->
+          <!-- <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:33.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:27.9px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://app.vagrantup.com/boxes/search?provider=virtualbox&q=%22Pre-salted+minion%22" target="_blank">
+          <!-- 1182 x 1220 -->
+          <!-- <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:23.3px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:19.4px;height:20px;" />
+        </a>
+
+        <!-- Chat -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://saltstackcommunity.slack.com/messages/C7LG8SV54/" target="_blank">
+          <!-- <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:20px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://matrix.to/#/#saltstack-formulas:matrix.org" target="_blank">
+          <!-- 499 x 520 -->
+          <img src="../../_/img/ssf/Matrix.png" alt="Matrix" style="width:22.1px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://t.me/saltstack_formulas" target="_blank">
+          <img src="../../_/img/ssf/Telegram.svg" alt="Telegram" style="width:22px;height:22px;" />
+        </a>
+        <!-- ircs://chat.freenode.net/saltstack-formulas -->
+        <a class="navbar-item" href="https://webchat.freenode.net/?channels=saltstack-formulas" target="_blank">
+          <!-- 271 x 55 -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:73.9px;height:15px;" /> -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:59.1px;height:12px;" /> -->
+          <!-- 64 x 55 -->
+          <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:23.3px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://freenode.logbot.info/saltstack-formulas" target="_blank">
+          <!-- 83 x 62 -->
+          <img src="../../_/img/ssf/LogBot.svg" alt="LogBot" style="width:26.8px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://saltstack-formulas.zulipchat.com" target="_blank">
+          <!-- 360 x 401 -->
+          <!-- <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:21.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:18px;height:20px;" />
+        </a>
+
+        <!-- Working group: project management -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://tree.taiga.io/project/myii-saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://meet.jit.si/myiisaltstackformulas" target="_blank">
+          <!-- 712 x 1056 -->
+          <!-- <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:24.2px;height:36px;" /> -->
+          <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:20.2px;height:30px;" />
+        </a>
+
+        <!-- Working group: meetings & recordings -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://VMware.zoom.us/j/98009043675?pwd=cm0rOXNZL0lrVFlzZHZkSUprVnZ6dz09" target="_blank">
+          <!-- 4094 x 920 -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:53.4px;height:12px;" /> -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:44.5px;height:10px;" /> -->
+          <!-- 625 x 625 -->
+          <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:23px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://www.youtube.com/watch?v=P5k5W6iEl_c&list=PL9svBjLDUl_8QNmemBGKnEyRTcLl4or6f" target="_blank">
+          <!-- 611 x 429 -->
+          <!-- <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:34.2px;height:24px;" /> -->
+          <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:28.5px;height:20px;" />
+        </a>
+
+        <!-- Other -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://cauldron.io/project/314" target="_blank">
+          <!-- <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:24px;height:24px;" />
+        </a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="postgres-formula" data-version="0.41.7">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="README.html">postgres-formula</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Repo documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="README.html">README</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="README.html#_available_states">Available states</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="AUTHORS.html">Contributors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#explanation-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#guide-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#tutorial-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">postgres-formula</span>
+    <span class="version">0.41.7</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../apache-formula/1.1.3/README.html">apache-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apache-formula/1.1.3/README.html">1.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-cacher-formula/0.7.3/README.html">apt-cacher-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-cacher-formula/0.7.3/README.html">0.7.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-formula/0.9.1/README.html">apt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-formula/0.9.1/README.html">0.9.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../arvados-formula/1.1.4/README.html">arvados-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../arvados-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../bind-formula/0.19.2/README.html">bind-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../bind-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cert-formula/1.2.0/README.html">cert-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cert-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../chrony-formula/1.2.5/README.html">chrony-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../chrony-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../collectd-formula/1.1.4/README.html">collectd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../collectd-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../consul-formula/1.0.0/README.html">consul-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../consul-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cron-formula/0.3.2/README.html">cron-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cron-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../deepsea-formula/1.1.0/README.html">deepsea-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../deepsea-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../devstack-formula/1.0.2/README.html">devstack-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../devstack-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../dhcpd-formula/0.9.0/README.html">dhcpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../dhcpd-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../django-formula/0.5.0/README.html">django-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../django-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../docker-formula/2.0.3/README.html">docker-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../docker-formula/2.0.3/README.html">2.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eclipse-formula/1.1.1/README.html">eclipse-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../eclipse-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../epel-formula/1.15.5/README.html">epel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../epel-formula/1.15.5/README.html">1.15.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../exim-formula/0.7.1/README.html">exim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../exim-formula/0.7.1/README.html">0.7.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../fail2ban-formula/1.1.2/README.html">fail2ban-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../fail2ban-formula/1.1.2/README.html">1.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../firewalld-formula/1.2.1/README.html">firewalld-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../firewalld-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../golang-formula/0.7.5/README.html">golang-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../golang-formula/0.7.5/README.html">0.7.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../grafana-formula/3.1.2/README.html">grafana-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../grafana-formula/3.1.2/README.html">3.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../haproxy-formula/0.17.1/README.html">haproxy-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../haproxy-formula/0.17.1/README.html">0.17.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../hostsfile-formula/0.8.1/README.html">hostsfile-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../hostsfile-formula/0.8.1/README.html">0.8.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../icinga2-formula/0.9.0/README.html">icinga2-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../icinga2-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../influxdb-formula/0.3.3/README.html">influxdb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../influxdb-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iptables-formula/0.17.4/README.html">iptables-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iptables-formula/0.17.4/README.html">0.17.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iscsi-formula/1.2.0/README.html">iscsi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iscsi-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../java-formula/2.0.0/README.html">java-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../java-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-appcode-formula/1.0.3/README.html">jetbrains-appcode-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-appcode-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-clion-formula/1.2.1/README.html">jetbrains-clion-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-clion-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-datagrip-formula/1.2.1/README.html">jetbrains-datagrip-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-datagrip-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-goland-formula/1.2.1/README.html">jetbrains-goland-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-goland-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-intellij-formula/1.2.1/README.html">jetbrains-intellij-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-intellij-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-phpstorm-formula/1.2.1/README.html">jetbrains-phpstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-phpstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-pycharm-formula/1.2.1/README.html">jetbrains-pycharm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-pycharm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-resharper-formula/1.2.2/README.html">jetbrains-resharper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-resharper-formula/1.2.2/README.html">1.2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rider-formula/1.2.1/README.html">jetbrains-rider-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rider-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rubymine-formula/1.1.1/README.html">jetbrains-rubymine-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rubymine-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-webstorm-formula/1.2.1/README.html">jetbrains-webstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-webstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../keepalived-formula/0.6.0/README.html">keepalived-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../keepalived-formula/0.6.0/README.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../letsencrypt-formula/2.1.0/README.html">letsencrypt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../letsencrypt-formula/2.1.0/README.html">2.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../libvirt-formula/3.9.0/README.html">libvirt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../libvirt-formula/3.9.0/README.html">3.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../locale-formula/0.3.5/README.html">locale-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../locale-formula/0.3.5/README.html">0.3.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../logrotate-formula/0.9.0/README.html">logrotate-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../logrotate-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lvm-formula/0.3.3/README.html">lvm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lvm-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lynis-formula/0.4.2/README.html">lynis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lynis-formula/0.4.2/README.html">0.4.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../maven-formula/1.0.2/README.html">maven-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../maven-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mongodb-formula/1.0.2/README.html">mongodb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mongodb-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mysql-formula/0.55.1/README.html">mysql-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mysql-formula/0.55.1/README.html">0.55.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nfs-formula/0.12.0/README.html">nfs-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nfs-formula/0.12.0/README.html">0.12.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nginx-formula/2.7.0/README.html">nginx-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nginx-formula/2.7.0/README.html">2.7.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nifi-formula/0.8.0/README.html">nifi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nifi-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../node-formula/1.0.1/README.html">node-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../node-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ntp-formula/0.19.2/README.html">ntp-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ntp-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nut-formula/1.1.0/README.html">nut-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nut-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openldap-formula/0.8.0/README.html">openldap-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openldap-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openntpd-formula/0.2.4/README.html">openntpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openntpd-formula/0.2.4/README.html">0.2.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openssh-formula/3.0.1/README.html">openssh-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openssh-formula/3.0.1/README.html">3.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openvpn-formula/1.15.1/README.html">openvpn-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openvpn-formula/1.15.1/README.html">1.15.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../packages-formula/0.9.0/README.html">packages-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../packages-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../php-formula/1.4.0/README.html">php-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../php-formula/1.4.0/README.html">1.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../postfix-formula/2.0.0/README.html">postfix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../postfix-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="README.html">postgres-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest is-current">
+          <a href="README.html">0.41.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../powerdns-formula/0.3.4/README.html">powerdns-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../powerdns-formula/0.3.4/README.html">0.3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../proftpd-formula/0.5.0/README.html">proftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../proftpd-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../prometheus-formula/5.4.0/README.html">prometheus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../prometheus-formula/5.4.0/README.html">5.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rabbitmq-formula/1.0.0/README.html">rabbitmq-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../redis-formula/0.27.2/README.html">redis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../redis-formula/0.27.2/README.html">0.27.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rkhunter-formula/0.4.3/README.html">rkhunter-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rkhunter-formula/0.4.3/README.html">0.4.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rng-tools-formula/0.2.0/README.html">rng-tools-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rng-tools-formula/0.2.0/README.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rspamd-formula/0.1.3/README.html">rspamd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rspamd-formula/0.1.3/README.html">0.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../salt-formula/1.8.4/README.html">salt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../salt-formula/1.8.4/README.html">1.8.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../main/1.1.0/index.html">SaltStack Formulas</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../main/1.1.0/index.html">1.1.0</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqldeveloper-formula/1.0.1/README.html">sqldeveloper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqldeveloper-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqlplus-formula/1.0.1/README.html">sqlplus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqlplus-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../strongswan-formula/0.3.0/README.html">strongswan-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../strongswan-formula/0.3.0/README.html">0.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../stunnel-formula/0.2.3/README.html">stunnel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../stunnel-formula/0.2.3/README.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sudoers-formula/0.23.4/README.html">sudoers-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sudoers-formula/0.23.4/README.html">0.23.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../suricata-formula/1.0.2/README.html">suricata-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../suricata-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysctl-formula/0.6.3/README.html">sysctl-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysctl-formula/0.6.3/README.html">0.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../syslog-ng-formula/0.5.1/README.html">syslog-ng-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../syslog-ng-formula/0.5.1/README.html">0.5.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysstat-formula/0.4.1/README.html">sysstat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysstat-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../systemd-formula/0.19.0/README.html">systemd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../systemd-formula/0.19.0/README.html">0.19.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../telegraf-formula/1.0.3/README.html">telegraf-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../telegraf-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../template-formula/1.3.17/README.html">template-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../template-formula/1.3.17/README.html">1.3.17</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.16/README.html">1.3.16</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.15/README.html">1.3.15</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.14/README.html">1.3.14</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.13/README.html">1.3.13</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.12/README.html">1.3.12</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.11/README.html">1.3.11</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.10/README.html">1.3.10</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.9/README.html">1.3.9</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.8/README.html">1.3.8</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.7/README.html">1.3.7</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.6/README.html">1.3.6</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.5/README.html">1.3.5</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.4/README.html">1.3.4</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.3/README.html">1.3.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.2/README.html">1.3.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.1/README.html">1.3.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.0/README.html">1.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../timezone-formula/0.4.4/README.html">timezone-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../timezone-formula/0.4.4/README.html">0.4.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tomcat-formula/0.19.5/README.html">tomcat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../tomcat-formula/0.19.5/README.html">0.19.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ufw-formula/0.5.7/README.html">ufw-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ufw-formula/0.5.7/README.html">0.5.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../users-formula/1.46.0/README.html">users-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../users-formula/1.46.0/README.html">1.46.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../varnish-formula/0.4.1/README.html">varnish-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../varnish-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vault-formula/1.2.5/README.html">vault-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vault-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vim-formula/0.15.4/README.html">vim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vim-formula/0.15.4/README.html">0.15.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vsftpd-formula/0.3.2/README.html">vsftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vsftpd-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../zabbix-formula/1.1.0/README.html">zabbix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../zabbix-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../main/1.1.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="README.html">postgres-formula</a></li>
+    <li>Repo documentation</li>
+    <li><a href="CHANGELOG.html">Changelog</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/myii/postgres-formula/edit/antora/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Changelog</h1>
+<div class="sect1">
+<h2 id="_0_41_7_2021_03_26"><a class="anchor" href="#_0_41_7_2021_03_26"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.6...v0.41.7" target="_blank" rel="noopener">0.41.7</a> (2021-03-26)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_continuous_integration"><a class="anchor" href="#_continuous_integration"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>enable Vagrant-based testing using GitHub Actions
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/2ebc9c11da512c8bc2089e8ecb28f5d3e13261f1" target="_blank" rel="noopener">2ebc9c1</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+ci:</strong> use latest pre-salted images (after CVE) [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/cc43d1c90db36c232012bc80b66baa248ece3c42" target="_blank" rel="noopener">cc43d1c</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation"><a class="anchor" href="#_documentation"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>readme:</strong> add <code>Testing with Vagrant</code> section
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/ed2d6884b10725fad55b83de4972e59710f1970f" target="_blank" rel="noopener">ed2d688</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests"><a class="anchor" href="#_tests"></a>Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>standardise use of <code>share</code> suite &amp; <code>_mapdata</code> state [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/fc53d977b32290834dc5aa17fe461154b269d38c" target="_blank" rel="noopener">fc53d97</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_6_2021_02_26"><a class="anchor" href="#_0_41_6_2021_02_26"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.5...v0.41.6" target="_blank" rel="noopener">0.41.6</a> (2021-02-26)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes"><a class="anchor" href="#_bug_fixes"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>repo:</strong> check whether pkg_repo is set
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/26b223323fa65abee731af04ee9631062a78b308" target="_blank" rel="noopener">26b2233</a>)</p>
+</li>
+<li>
+<p><strong>repo:</strong> reorder dependencies to prevent errors
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/750d8aab7a7e386e5ca0a3d546bb5cf12aa4506c" target="_blank" rel="noopener">750d8aa</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_2"><a class="anchor" href="#_continuous_integration_2"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gemfile+lock:</strong> use <code>ssf</code> customised <code>kitchen-docker</code> repo [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/476b15e326b72a6bbdb9635d612f30b7a51ce7fa" target="_blank" rel="noopener">476b15e</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+gitlab-ci:</strong> use latest pre-salted images [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/6f04b3191c6d1354d376473ff6e3ba213d614a4d" target="_blank" rel="noopener">6f04b31</a>)</p>
+</li>
+<li>
+<p><strong>pre-commit:</strong> update hook for <code>rubocop</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e964c26a29e61c5455b880e00195d5a0f55de641" target="_blank" rel="noopener">e964c26</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_2"><a class="anchor" href="#_tests_2"></a>Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>command_spec:</strong> fix <code>rubocop</code> violation [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/73c39aff5ef9bf5808a251f70504e3b019087f01" target="_blank" rel="noopener">73c39af</a>)</p>
+</li>
+<li>
+<p><strong>pillar:</strong> update conditional to include Tumbleweed
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e976ee9c9924363db400b23cbde914112b6b4349" target="_blank" rel="noopener">e976ee9</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_5_2021_01_07"><a class="anchor" href="#_0_41_5_2021_01_07"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.4...v0.41.5" target="_blank" rel="noopener">0.41.5</a> (2021-01-07)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_2"><a class="anchor" href="#_bug_fixes_2"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>cent7:</strong> postgres11 needs libicu installed
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/4c0f796f00901b88e0ee9d778a5acb2115bf17cb" target="_blank" rel="noopener">4c0f796</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_3"><a class="anchor" href="#_continuous_integration_3"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>commitlint:</strong> ensure <code>upstream/master</code> uses main repo URL [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e84389dbb31f04f3eeabfd3935ef193e09e5b562" target="_blank" rel="noopener">e84389d</a>)</p>
+</li>
+<li>
+<p><strong>gitlab-ci:</strong> add <code>rubocop</code> linter (with <code>allow_failure</code>) [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/2615411ec019600328c330cb4e72de89472f8fc9" target="_blank" rel="noopener">2615411</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_4_2020_12_16"><a class="anchor" href="#_0_41_4_2020_12_16"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.3...v0.41.4" target="_blank" rel="noopener">0.41.4</a> (2020-12-16)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_3"><a class="anchor" href="#_bug_fixes_3"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>archlinux:</strong> avoid nonetype error
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/0a6cf8fefae1bbd5668a447ced911088ac965475" target="_blank" rel="noopener">0a6cf8f</a>)</p>
+</li>
+<li>
+<p><strong>archlinux:</strong> use consistent jinja repo check
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/3a955e02708b23929c93f879bcba0e3fe5ae5666" target="_blank" rel="noopener">3a955e0</a>)</p>
+</li>
+<li>
+<p><strong>jinja:</strong> syntax correction
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8b44c068fcfd4199336596bdba095fc0e6c8fb2e" target="_blank" rel="noopener">8b44c06</a>)</p>
+</li>
+<li>
+<p><strong>python:</strong> use python3 postres on cent7/8
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/d6d1068395131de08534e387d377389bd078d3ee" target="_blank" rel="noopener">d6d1068</a>)</p>
+</li>
+<li>
+<p><strong>suse:</strong> version 11+ repo support on suse
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/b3f381e54750a00bb19a4aa50c6273c627dca16c" target="_blank" rel="noopener">b3f381e</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_4"><a class="anchor" href="#_continuous_integration_4"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gitlab-ci:</strong> use GitLab CI as Travis CI replacement
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/a45673a87892deb973afee3689aea4bebd7a5739" target="_blank" rel="noopener">a45673a</a>)</p>
+</li>
+<li>
+<p><strong>pre-commit:</strong> add to formula [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/db1794b6bbb6ce183e5231cb4b7e7193dcb80143" target="_blank" rel="noopener">db1794b</a>)</p>
+</li>
+<li>
+<p><strong>pre-commit:</strong> enable/disable <code>rstcheck</code> as relevant [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/f04d60a773461dce98b4f2a7c8abbbab268513a0" target="_blank" rel="noopener">f04d60a</a>)</p>
+</li>
+<li>
+<p><strong>pre-commit:</strong> finalise <code>rstcheck</code> configuration [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7036f60e8ca3857beeca18abe70a3c59b6a021ec" target="_blank" rel="noopener">7036f60</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_3_2020_09_29"><a class="anchor" href="#_0_41_3_2020_09_29"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.2...v0.41.3" target="_blank" rel="noopener">0.41.3</a> (2020-09-29)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_4"><a class="anchor" href="#_bug_fixes_4"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>upstream:</strong> require_in/require use_upstream
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/ab6b97e8c3ff40f9cb2e629c3c0faf09ca59ede9" target="_blank" rel="noopener">ab6b97e</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_2_2020_07_27"><a class="anchor" href="#_0_41_2_2020_07_27"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.1...v0.41.2" target="_blank" rel="noopener">0.41.2</a> (2020-07-27)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_5"><a class="anchor" href="#_bug_fixes_5"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>macros:</strong> fix <code>format_kwargs</code> macro
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/5e6511b783388930010e6c0795b197728fb10b39" target="_blank" rel="noopener">5e6511b</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_5"><a class="anchor" href="#_continuous_integration_5"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen:</strong> ubuntu-2004-master-py3 added
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/79789765439bb0727521dc817fe9eaebba000a67" target="_blank" rel="noopener">7978976</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+travis:</strong> use latest pre-salted images [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/702323c24df1df6b11defd663b55cf38586bd3f3" target="_blank" rel="noopener">702323c</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> ubuntu upgrade from 16 to 18 &amp; 20
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/44568a680602fb61f157b74dc05f9af9b153e8e6" target="_blank" rel="noopener">44568a6</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_styles"><a class="anchor" href="#_styles"></a>Styles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>libtofs.jinja:</strong> use Black-inspired Jinja formatting [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8735cf8ad1b9fc1eb816aecf3d363d4fc81fbe66" target="_blank" rel="noopener">8735cf8</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_1_2020_07_10"><a class="anchor" href="#_0_41_1_2020_07_10"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.41.0...v0.41.1" target="_blank" rel="noopener">0.41.1</a> (2020-07-10)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_6"><a class="anchor" href="#_bug_fixes_6"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>contributing:</strong> postgresql-repo state ID requires python3-apt package
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/69b57e3b69062d0b66bd9fb28e3769a9ff579faa" target="_blank" rel="noopener">69b57e3</a>)</p>
+</li>
+<li>
+<p><strong>contributing:</strong> postgresql-service-reload type
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/278893c2f0f3fa8db26b45b3874f7dd7177b714a" target="_blank" rel="noopener">278893c</a>)</p>
+</li>
+<li>
+<p><strong>contributing:</strong> runnig formula inside container
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/68a791ef091114b081f71631d94201a9f1ed07b6" target="_blank" rel="noopener">68a791e</a>)</p>
+</li>
+<li>
+<p><strong>libtofs:</strong> “files_switch” mess up the variable exported by “map.jinja”
+ [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e6b14853d5ce2369ead22cabdfc48ae63f64e550" target="_blank" rel="noopener">e6b1485</a>)</p>
+</li>
+<li>
+<p><strong>postgres.server:</strong> reverted how posrgre.server.image is included
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/07044bf7c1d420855b43d6add30358ff39666702" target="_blank" rel="noopener">07044bf</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_6"><a class="anchor" href="#_continuous_integration_6"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gemfile:</strong> remove unused <code>rspec-retry</code> gem [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/85feac2852ee399f37293b60008e3a17d19cd47f" target="_blank" rel="noopener">85feac2</a>)</p>
+</li>
+<li>
+<p><strong>gemfile:</strong> update for Vagrant testing [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/061715e560880a9a60720bbcbeda632c010d03a4" target="_blank" rel="noopener">061715e</a>)</p>
+</li>
+<li>
+<p><strong>gemfile.lock:</strong> add to repo with updated <code>Gemfile</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/35850da22cb4f61144a61098b9869603b6e0a682" target="_blank" rel="noopener">35850da</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> avoid using bootstrap for <code>master</code> instances [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/86697d8df48e24e37d6885f68ea8988d43b076aa" target="_blank" rel="noopener">86697d8</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> use <code>saltimages</code> Docker Hub where available [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/5e29999495f36653aa1b51f2baf956533fdee7e4" target="_blank" rel="noopener">5e29999</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+travis:</strong> remove <code>master-py2-arch-base-latest</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/c46053abd8019a4229daf19db1af86c5f8961353" target="_blank" rel="noopener">c46053a</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> add notifications &#8658; zulip [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/442cfec245fb6b22d7768c8436ba6c62ca2975fd" target="_blank" rel="noopener">442cfec</a>)</p>
+</li>
+<li>
+<p><strong>workflows/commitlint:</strong> add to repo [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/0c766c8e2e336e31d44fdddf5f4c5e56faa9e40e" target="_blank" rel="noopener">0c766c8</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_2"><a class="anchor" href="#_documentation_2"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>container:</strong> "postgres:bake_image" specifics
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/904a5258cd155f3b5a83ec8dc8e990a8ffc6b798" target="_blank" rel="noopener">904a525</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_41_0_2019_12_27"><a class="anchor" href="#_0_41_0_2019_12_27"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.5...v0.41.0" target="_blank" rel="noopener">0.41.0</a> (2019-12-27)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_7"><a class="anchor" href="#_bug_fixes_7"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>mac_shortcut.sh:</strong> fix <code>shellcheck</code> error
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/d538798ee4423ecb72b29bd39e4f35437412ce43" target="_blank" rel="noopener">d538798</a>)</p>
+</li>
+<li>
+<p><strong>release.config.js:</strong> use full commit hash in commit link [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/f3ec66d5ed90bc9a458fdff2233c9a707f0c9c72" target="_blank" rel="noopener">f3ec66d</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_7"><a class="anchor" href="#_continuous_integration_7"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gemfile:</strong> restrict <code>train</code> gem version until upstream fix [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/a77bb06b18823c7db0debd2c4ff135a367f76d04" target="_blank" rel="noopener">a77bb06</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> use <code>develop</code> image until <code>master</code> is ready (<code>amazonlinux</code>)
+ [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/20e5e46e1011641714a11756617530b898e3d689" target="_blank" rel="noopener">20e5e46</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+travis:</strong> upgrade matrix after <code>2019.2.2</code> release [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8080be6be3dd0c8799fa102b1235fb151514bced" target="_blank" rel="noopener">8080be6</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> apply changes from build config validation [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8ce1ee4ecc5dd6a6a14118eda75b3446b6f58d82" target="_blank" rel="noopener">8ce1ee4</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> opt-in to <code>dpl v2</code> to complete build config validation [skip
+ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/bd5959c60a93e65ea0658f5cb7fd1609bdd3399c" target="_blank" rel="noopener">bd5959c</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> quote pathspecs used with <code>git ls-files</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/0a2b63aba85b09c8983d066cbad7e344de791db1" target="_blank" rel="noopener">0a2b63a</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> run <code>shellcheck</code> during lint job [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/f0d12caac67bf7f2049ca7f1b7185912e876cb02" target="_blank" rel="noopener">f0d12ca</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> use <code>major.minor</code> for <code>semantic-release</code> version [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/1392538665bea2a699836a87a6b749e07276a94d" target="_blank" rel="noopener">1392538</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> use build config validation (beta) [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/c9a57aa96bb80dc27c4722e0f8dc45c77460c03a" target="_blank" rel="noopener">c9a57aa</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_features"><a class="anchor" href="#_features"></a>Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>codenamemap:</strong> update for current versions
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/9cc95c020909563486f404b186e15ed71dd8a83a" target="_blank" rel="noopener">9cc95c0</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_performance_improvements"><a class="anchor" href="#_performance_improvements"></a>Performance Improvements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>travis:</strong> improve <code>salt-lint</code> invocation [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/ccaf4e5e3729c75c3a5eccbf482e7fca09415fea" target="_blank" rel="noopener">ccaf4e5</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_5_2019_10_28"><a class="anchor" href="#_0_40_5_2019_10_28"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.4...v0.40.5" target="_blank" rel="noopener">0.40.5</a> (2019-10-28)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_8"><a class="anchor" href="#_bug_fixes_8"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>macros.jinja:</strong> apply suggestion from PR
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/d606b28" target="_blank" rel="noopener">d606b28</a>)</p>
+</li>
+<li>
+<p><strong>macros.jinja:</strong> use <code>user</code> kwarg for schemas (required on FreeBSD)
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7ff798a" target="_blank" rel="noopener">7ff798a</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_8"><a class="anchor" href="#_continuous_integration_8"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen:</strong> add pre-salted <code>FreeBSD-12.0</code> box for local testing
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/eefb89e" target="_blank" rel="noopener">eefb89e</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> use <code>debian-10-master-py3</code> instead of <code>develop</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/81b2c2e" target="_blank" rel="noopener">81b2c2e</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> update <code>salt-lint</code> config for <code>v0.0.10</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/62baac2" target="_blank" rel="noopener">62baac2</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_3"><a class="anchor" href="#_documentation_3"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>contributing:</strong> remove to use org-level file instead [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/5a291ab" target="_blank" rel="noopener">5a291ab</a>)</p>
+</li>
+<li>
+<p><strong>readme:</strong> update link to <code>CONTRIBUTING</code> [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e568f28" target="_blank" rel="noopener">e568f28</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_4_2019_10_11"><a class="anchor" href="#_0_40_4_2019_10_11"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.3...v0.40.4" target="_blank" rel="noopener">0.40.4</a> (2019-10-11)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_9"><a class="anchor" href="#_bug_fixes_9"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>rubocop:</strong> add fixes using <code>rubocop --safe-auto-correct</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/37b0c43" target="_blank" rel="noopener">37b0c43</a>)</p>
+</li>
+<li>
+<p><strong>rubocop:</strong> fix remaining errors manually
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/b369aa9" target="_blank" rel="noopener">b369aa9</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_9"><a class="anchor" href="#_continuous_integration_9"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>merge travis matrix, add <code>salt-lint</code> &amp; <code>rubocop</code> to <code>lint</code> job
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7822200" target="_blank" rel="noopener">7822200</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> merge <code>rubocop</code> linter into main <code>lint</code> job
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/2c82872" target="_blank" rel="noopener">2c82872</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_3_2019_10_10"><a class="anchor" href="#_0_40_3_2019_10_10"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.2...v0.40.3" target="_blank" rel="noopener">0.40.3</a> (2019-10-10)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_10"><a class="anchor" href="#_bug_fixes_10"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>manage.sls:</strong> fix <code>salt-lint</code> errors
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/bf5b4d6" target="_blank" rel="noopener">bf5b4d6</a>)</p>
+</li>
+<li>
+<p><strong>python.sls:</strong> fix <code>salt-lint</code> errors
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/1f3cfcc" target="_blank" rel="noopener">1f3cfcc</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_10"><a class="anchor" href="#_continuous_integration_10"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen:</strong> change <code>log_level</code> to <code>debug</code> instead of <code>info</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7ca61f3" target="_blank" rel="noopener">7ca61f3</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> install required packages to bootstrapped <code>opensuse</code> [skip
+ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/76e3e39" target="_blank" rel="noopener">76e3e39</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> use bootstrapped <code>opensuse</code> images until <code>2019.2.2</code> [skip
+ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/3a27978" target="_blank" rel="noopener">3a27978</a>)</p>
+</li>
+<li>
+<p><strong>platform:</strong> add <code>arch-base-latest</code> (commented out for now) [skip ci]
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/89e4a34" target="_blank" rel="noopener">89e4a34</a>)</p>
+</li>
+<li>
+<p>merge travis matrix, add <code>salt-lint</code> &amp; <code>rubocop</code> to <code>lint</code> job
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/a0fdd48" target="_blank" rel="noopener">a0fdd48</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_2_2019_09_13"><a class="anchor" href="#_0_40_2_2019_09_13"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.1...v0.40.2" target="_blank" rel="noopener">0.40.2</a> (2019-09-13)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_11"><a class="anchor" href="#_bug_fixes_11"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>freebsd:</strong> no libpqdev freebsd package
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/eca6d97" target="_blank" rel="noopener">eca6d97</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_11"><a class="anchor" href="#_continuous_integration_11"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>yamllint:</strong> add rule <code>empty-values</code> &amp; use new <code>yaml-files</code> setting
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/9796319" target="_blank" rel="noopener">9796319</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_1_2019_09_11"><a class="anchor" href="#_0_40_1_2019_09_11"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.40.0...v0.40.1" target="_blank" rel="noopener">0.40.1</a> (2019-09-11)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_continuous_integration_12"><a class="anchor" href="#_continuous_integration_12"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>use <code>dist: bionic</code> &amp; apply <code>opensuse-leap-15</code> SCP error workaround
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/fc6cbe0" target="_blank" rel="noopener">fc6cbe0</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_4"><a class="anchor" href="#_documentation_4"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>pillar.example:</strong> update examples for freebsd
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/a799214" target="_blank" rel="noopener">a799214</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_40_0_2019_09_03"><a class="anchor" href="#_0_40_0_2019_09_03"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.39.1...v0.40.0" target="_blank" rel="noopener">0.40.0</a> (2019-09-03)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_features_2"><a class="anchor" href="#_features_2"></a>Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>archlinux:</strong> add support, fixing rendering errors
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/e970925" target="_blank" rel="noopener">e970925</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_39_1_2019_09_01"><a class="anchor" href="#_0_39_1_2019_09_01"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.39.0...v0.39.1" target="_blank" rel="noopener">0.39.1</a> (2019-09-01)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_continuous_integration_13"><a class="anchor" href="#_continuous_integration_13"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen+travis:</strong> replace EOL pre-salted images
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/140928b" target="_blank" rel="noopener">140928b</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_3"><a class="anchor" href="#_tests_3"></a>Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>inspec:</strong> fix reference to <code>suse</code> after gem <code>train</code> update
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/677adba" target="_blank" rel="noopener">677adba</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_39_0_2019_08_17"><a class="anchor" href="#_0_39_0_2019_08_17"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.38.0...v0.39.0" target="_blank" rel="noopener">0.39.0</a> (2019-08-17)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_features_3"><a class="anchor" href="#_features_3"></a>Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>yamllint:</strong> include for this repo and apply rules throughout
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/1f0fd92" target="_blank" rel="noopener">1f0fd92</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_38_0_2019_07_24"><a class="anchor" href="#_0_38_0_2019_07_24"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.37.4...v0.38.0" target="_blank" rel="noopener">0.38.0</a> (2019-07-24)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_continuous_integration_14"><a class="anchor" href="#_continuous_integration_14"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen:</strong> remove <code>python*-pip</code> installation
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/d999597" target="_blank" rel="noopener">d999597</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+travis:</strong> modify matrix to include <code>develop</code> platform
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/3f81439" target="_blank" rel="noopener">3f81439</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_features_4"><a class="anchor" href="#_features_4"></a>Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>debian:</strong> add buster support
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/904ba27" target="_blank" rel="noopener">904ba27</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_37_4_2019_05_31"><a class="anchor" href="#_0_37_4_2019_05_31"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.37.3...v0.37.4" target="_blank" rel="noopener">0.37.4</a> (2019-05-31)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_continuous_integration_15"><a class="anchor" href="#_continuous_integration_15"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>travis:</strong> reduce matrix down to 6 instances
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/2ff919f" target="_blank" rel="noopener">2ff919f</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_4"><a class="anchor" href="#_tests_4"></a>Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>services_spec</code>:</strong> remove temporary <code>suse</code> conditional
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/81165fc" target="_blank" rel="noopener">81165fc</a>)</p>
+</li>
+<li>
+<p><strong>command_spec:</strong> use cleaner <code>match</code> string using <code>%r</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/a054cea" target="_blank" rel="noopener">a054cea</a>)</p>
+</li>
+<li>
+<p><strong>locale:</strong> improve test using locale <code>en_US.UTF-8</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7796064" target="_blank" rel="noopener">7796064</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_37_3_2019_05_16"><a class="anchor" href="#_0_37_3_2019_05_16"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.37.2...v0.37.3" target="_blank" rel="noopener">0.37.3</a> (2019-05-16)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_12"><a class="anchor" href="#_bug_fixes_12"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>freebsd-user:</strong> fix FreeBSD daemon&#8217;s user for PostgreSQL &gt;= 9.6
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8745365" target="_blank" rel="noopener">8745365</a>),
+closes
+<a href="https://github.com/saltstack-formulas/postgres-formula/issues/263" target="_blank" rel="noopener">#263</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_37_2_2019_05_12"><a class="anchor" href="#_0_37_2_2019_05_12"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.37.1...v0.37.2" target="_blank" rel="noopener">0.37.2</a> (2019-05-12)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bug_fixes_13"><a class="anchor" href="#_bug_fixes_13"></a>Bug Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>sysrc-svc:</strong> workaround *BSD minion indefinitely hanging on start
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/0aa8b4a" target="_blank" rel="noopener">0aa8b4a</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_37_1_2019_05_06"><a class="anchor" href="#_0_37_1_2019_05_06"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.37.0...v0.37.1" target="_blank" rel="noopener">0.37.1</a> (2019-05-06)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_documentation_5"><a class="anchor" href="#_documentation_5"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>readme:</strong> fix link for Travis badge
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/850ca6a" target="_blank" rel="noopener">850ca6a</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_0_37_0_2019_05_06"><a class="anchor" href="#_0_37_0_2019_05_06"></a><a href="https://github.com/saltstack-formulas/postgres-formula/compare/v0.36.0...v0.37.0" target="_blank" rel="noopener">0.37.0</a> (2019-05-06)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_code_refactoring"><a class="anchor" href="#_code_refactoring"></a>Code Refactoring</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>kitchen:</strong> prefer <code>kitchen.yml</code> to <code>.kitchen.yml</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/8f7cbde" target="_blank" rel="noopener">8f7cbde</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_integration_16"><a class="anchor" href="#_continuous_integration_16"></a>Continuous Integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gemfile:</strong> prepare for <code>inspec</code> testing
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/157e169" target="_blank" rel="noopener">157e169</a>)</p>
+</li>
+<li>
+<p><strong>kitchen:</strong> use pre-salted images as used in <code>template-formula</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/611ec11" target="_blank" rel="noopener">611ec11</a>)</p>
+</li>
+<li>
+<p><strong>kitchen+travis:</strong> use newly available pre-salted images
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7b7aadc" target="_blank" rel="noopener">7b7aadc</a>)</p>
+</li>
+<li>
+<p><strong>pillar_from_files:</strong> use custom pillar based on <code>pillar.example</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/c64d9e4" target="_blank" rel="noopener">c64d9e4</a>)</p>
+</li>
+<li>
+<p><strong>travis:</strong> add <code>.travis.yml</code> based on <code>template-formula</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/6467df7" target="_blank" rel="noopener">6467df7</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_6"><a class="anchor" href="#_documentation_6"></a>Documentation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>readme:</strong> update <code>Testing</code> section for <code>inspec</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/4cfde8d" target="_blank" rel="noopener">4cfde8d</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_features_5"><a class="anchor" href="#_features_5"></a>Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>implement <code>semantic-release</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/7d3aa19" target="_blank" rel="noopener">7d3aa19</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_5"><a class="anchor" href="#_tests_5"></a>Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>inspec:</strong> add tests for multiple ports and postgres versions
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/bf6a653" target="_blank" rel="noopener">bf6a653</a>)</p>
+</li>
+<li>
+<p><strong>inspec:</strong> enable <code>use_upstream_repo</code> for <code>debian</code> &amp; <code>centos-6</code>
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/49fdd33" target="_blank" rel="noopener">49fdd33</a>)</p>
+</li>
+<li>
+<p><strong>inspec:</strong> replace <code>serverspec</code> with <code>inspec</code> tests
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/58ac122" target="_blank" rel="noopener">58ac122</a>)</p>
+</li>
+<li>
+<p><strong>inspec:</strong> use relaxed command output match for the time being
+(<a href="https://github.com/saltstack-formulas/postgres-formula/commit/3c53684" target="_blank" rel="noopener">3c53684</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="README.html">README</a></span>
+  <span class="next"><a href="AUTHORS.html">Contributors</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using a customised version of the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/tabs-block-behavior.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

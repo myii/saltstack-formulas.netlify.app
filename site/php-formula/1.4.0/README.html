@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>php-formula :: SaltStack Formulas</title>
+    <link rel="canonical" href="https://saltstack-formulas.netlify.app/php-formula/1.4.0/README.html">
+    <link rel="next" href="CHANGELOG.html">
+    <meta name="generator" content="Antora 3.0.0-alpha.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/site-extra.css">
+    <script>var uiRootPath = '../../_'</script>
+    <link rel="icon" href="../../_/img/ssf/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://saltstack-formulas.netlify.app">
+        <!-- <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:30px;height:30px;" />&#38;nbsp;SaltStack Formulas -->
+        <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:25px;height:25px;" />&nbsp;SaltStack Formulas
+      </a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- <div class="navbar&#45;item&#45;divider"></div>  -->
+        <!-- <a class="navbar&#45;item" href="#">Home</a> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Products</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Product A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Services</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Service A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Resources</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        
+        <!-- Have these in a separate `div`? -->
+
+        <!-- Repos -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://github.com/saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://gitlab.com/saltstack-formulas" target="_blank">
+          <!-- 714 x 660 -->
+          <!-- <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:32.5px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:27px;height:25px;" />
+        </a>
+
+        <!-- Pre-salted images and boxes -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://hub.docker.com/u/saltimages" target="_blank">
+          <!-- 1008 x 722 -->
+          <!-- <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:33.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:27.9px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://app.vagrantup.com/boxes/search?provider=virtualbox&q=%22Pre-salted+minion%22" target="_blank">
+          <!-- 1182 x 1220 -->
+          <!-- <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:23.3px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:19.4px;height:20px;" />
+        </a>
+
+        <!-- Chat -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://saltstackcommunity.slack.com/messages/C7LG8SV54/" target="_blank">
+          <!-- <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:20px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://matrix.to/#/#saltstack-formulas:matrix.org" target="_blank">
+          <!-- 499 x 520 -->
+          <img src="../../_/img/ssf/Matrix.png" alt="Matrix" style="width:22.1px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://t.me/saltstack_formulas" target="_blank">
+          <img src="../../_/img/ssf/Telegram.svg" alt="Telegram" style="width:22px;height:22px;" />
+        </a>
+        <!-- ircs://chat.freenode.net/saltstack-formulas -->
+        <a class="navbar-item" href="https://webchat.freenode.net/?channels=saltstack-formulas" target="_blank">
+          <!-- 271 x 55 -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:73.9px;height:15px;" /> -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:59.1px;height:12px;" /> -->
+          <!-- 64 x 55 -->
+          <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:23.3px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://freenode.logbot.info/saltstack-formulas" target="_blank">
+          <!-- 83 x 62 -->
+          <img src="../../_/img/ssf/LogBot.svg" alt="LogBot" style="width:26.8px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://saltstack-formulas.zulipchat.com" target="_blank">
+          <!-- 360 x 401 -->
+          <!-- <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:21.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:18px;height:20px;" />
+        </a>
+
+        <!-- Working group: project management -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://tree.taiga.io/project/myii-saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://meet.jit.si/myiisaltstackformulas" target="_blank">
+          <!-- 712 x 1056 -->
+          <!-- <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:24.2px;height:36px;" /> -->
+          <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:20.2px;height:30px;" />
+        </a>
+
+        <!-- Working group: meetings & recordings -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://VMware.zoom.us/j/98009043675?pwd=cm0rOXNZL0lrVFlzZHZkSUprVnZ6dz09" target="_blank">
+          <!-- 4094 x 920 -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:53.4px;height:12px;" /> -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:44.5px;height:10px;" /> -->
+          <!-- 625 x 625 -->
+          <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:23px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://www.youtube.com/watch?v=P5k5W6iEl_c&list=PL9svBjLDUl_8QNmemBGKnEyRTcLl4or6f" target="_blank">
+          <!-- 611 x 429 -->
+          <!-- <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:34.2px;height:24px;" /> -->
+          <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:28.5px;height:20px;" />
+        </a>
+
+        <!-- Other -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://cauldron.io/project/314" target="_blank">
+          <!-- <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:24px;height:24px;" />
+        </a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="php-formula" data-version="1.4.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="README.html">php-formula</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Repo documentation</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="README.html">README</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#_available_states">Available states</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="AUTHORS.html">Contributors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#explanation-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#guide-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#tutorial-.adoc">&#8230;&#8203;</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">php-formula</span>
+    <span class="version">1.4.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../apache-formula/1.1.3/README.html">apache-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apache-formula/1.1.3/README.html">1.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-cacher-formula/0.7.3/README.html">apt-cacher-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-cacher-formula/0.7.3/README.html">0.7.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-formula/0.9.1/README.html">apt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-formula/0.9.1/README.html">0.9.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../arvados-formula/1.1.4/README.html">arvados-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../arvados-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../bind-formula/0.19.2/README.html">bind-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../bind-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cert-formula/1.2.0/README.html">cert-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cert-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../chrony-formula/1.2.5/README.html">chrony-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../chrony-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../collectd-formula/1.1.4/README.html">collectd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../collectd-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../consul-formula/1.0.0/README.html">consul-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../consul-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cron-formula/0.3.2/README.html">cron-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cron-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../deepsea-formula/1.1.0/README.html">deepsea-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../deepsea-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../devstack-formula/1.0.2/README.html">devstack-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../devstack-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../dhcpd-formula/0.9.0/README.html">dhcpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../dhcpd-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../django-formula/0.5.0/README.html">django-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../django-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../docker-formula/2.0.3/README.html">docker-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../docker-formula/2.0.3/README.html">2.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eclipse-formula/1.1.1/README.html">eclipse-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../eclipse-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../epel-formula/1.15.5/README.html">epel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../epel-formula/1.15.5/README.html">1.15.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../exim-formula/0.7.1/README.html">exim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../exim-formula/0.7.1/README.html">0.7.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../fail2ban-formula/1.1.2/README.html">fail2ban-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../fail2ban-formula/1.1.2/README.html">1.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../firewalld-formula/1.2.1/README.html">firewalld-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../firewalld-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../golang-formula/0.7.5/README.html">golang-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../golang-formula/0.7.5/README.html">0.7.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../grafana-formula/3.1.2/README.html">grafana-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../grafana-formula/3.1.2/README.html">3.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../haproxy-formula/0.17.1/README.html">haproxy-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../haproxy-formula/0.17.1/README.html">0.17.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../hostsfile-formula/0.8.1/README.html">hostsfile-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../hostsfile-formula/0.8.1/README.html">0.8.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../icinga2-formula/0.9.0/README.html">icinga2-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../icinga2-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../influxdb-formula/0.3.3/README.html">influxdb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../influxdb-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iptables-formula/0.17.4/README.html">iptables-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iptables-formula/0.17.4/README.html">0.17.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iscsi-formula/1.2.0/README.html">iscsi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iscsi-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../java-formula/2.0.0/README.html">java-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../java-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-appcode-formula/1.0.3/README.html">jetbrains-appcode-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-appcode-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-clion-formula/1.2.1/README.html">jetbrains-clion-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-clion-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-datagrip-formula/1.2.1/README.html">jetbrains-datagrip-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-datagrip-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-goland-formula/1.2.1/README.html">jetbrains-goland-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-goland-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-intellij-formula/1.2.1/README.html">jetbrains-intellij-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-intellij-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-phpstorm-formula/1.2.1/README.html">jetbrains-phpstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-phpstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-pycharm-formula/1.2.1/README.html">jetbrains-pycharm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-pycharm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-resharper-formula/1.2.2/README.html">jetbrains-resharper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-resharper-formula/1.2.2/README.html">1.2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rider-formula/1.2.1/README.html">jetbrains-rider-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rider-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rubymine-formula/1.1.1/README.html">jetbrains-rubymine-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rubymine-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-webstorm-formula/1.2.1/README.html">jetbrains-webstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-webstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../keepalived-formula/0.6.0/README.html">keepalived-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../keepalived-formula/0.6.0/README.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../letsencrypt-formula/2.1.0/README.html">letsencrypt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../letsencrypt-formula/2.1.0/README.html">2.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../libvirt-formula/3.9.0/README.html">libvirt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../libvirt-formula/3.9.0/README.html">3.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../locale-formula/0.3.5/README.html">locale-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../locale-formula/0.3.5/README.html">0.3.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../logrotate-formula/0.9.0/README.html">logrotate-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../logrotate-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lvm-formula/0.3.3/README.html">lvm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lvm-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lynis-formula/0.4.2/README.html">lynis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lynis-formula/0.4.2/README.html">0.4.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../maven-formula/1.0.2/README.html">maven-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../maven-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mongodb-formula/1.0.2/README.html">mongodb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mongodb-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mysql-formula/0.55.1/README.html">mysql-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mysql-formula/0.55.1/README.html">0.55.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nfs-formula/0.12.0/README.html">nfs-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nfs-formula/0.12.0/README.html">0.12.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nginx-formula/2.7.0/README.html">nginx-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nginx-formula/2.7.0/README.html">2.7.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nifi-formula/0.8.0/README.html">nifi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nifi-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../node-formula/1.0.1/README.html">node-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../node-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ntp-formula/0.19.2/README.html">ntp-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ntp-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nut-formula/1.1.0/README.html">nut-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nut-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openldap-formula/0.8.0/README.html">openldap-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openldap-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openntpd-formula/0.2.4/README.html">openntpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openntpd-formula/0.2.4/README.html">0.2.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openssh-formula/3.0.1/README.html">openssh-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openssh-formula/3.0.1/README.html">3.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openvpn-formula/1.15.1/README.html">openvpn-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openvpn-formula/1.15.1/README.html">1.15.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../packages-formula/0.9.0/README.html">packages-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../packages-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="README.html">php-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest is-current">
+          <a href="README.html">1.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../postfix-formula/2.0.0/README.html">postfix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../postfix-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../postgres-formula/0.41.7/README.html">postgres-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../postgres-formula/0.41.7/README.html">0.41.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../powerdns-formula/0.3.4/README.html">powerdns-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../powerdns-formula/0.3.4/README.html">0.3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../proftpd-formula/0.5.0/README.html">proftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../proftpd-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../prometheus-formula/5.4.0/README.html">prometheus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../prometheus-formula/5.4.0/README.html">5.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rabbitmq-formula/1.0.0/README.html">rabbitmq-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../redis-formula/0.27.2/README.html">redis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../redis-formula/0.27.2/README.html">0.27.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rkhunter-formula/0.4.3/README.html">rkhunter-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rkhunter-formula/0.4.3/README.html">0.4.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rng-tools-formula/0.2.0/README.html">rng-tools-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rng-tools-formula/0.2.0/README.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rspamd-formula/0.1.3/README.html">rspamd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rspamd-formula/0.1.3/README.html">0.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../salt-formula/1.8.4/README.html">salt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../salt-formula/1.8.4/README.html">1.8.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../main/1.1.0/index.html">SaltStack Formulas</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../main/1.1.0/index.html">1.1.0</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqldeveloper-formula/1.0.1/README.html">sqldeveloper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqldeveloper-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqlplus-formula/1.0.1/README.html">sqlplus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqlplus-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../strongswan-formula/0.3.0/README.html">strongswan-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../strongswan-formula/0.3.0/README.html">0.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../stunnel-formula/0.2.3/README.html">stunnel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../stunnel-formula/0.2.3/README.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sudoers-formula/0.23.4/README.html">sudoers-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sudoers-formula/0.23.4/README.html">0.23.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../suricata-formula/1.0.2/README.html">suricata-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../suricata-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysctl-formula/0.6.3/README.html">sysctl-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysctl-formula/0.6.3/README.html">0.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../syslog-ng-formula/0.5.1/README.html">syslog-ng-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../syslog-ng-formula/0.5.1/README.html">0.5.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysstat-formula/0.4.1/README.html">sysstat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysstat-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../systemd-formula/0.19.0/README.html">systemd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../systemd-formula/0.19.0/README.html">0.19.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../telegraf-formula/1.0.3/README.html">telegraf-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../telegraf-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../template-formula/1.3.17/README.html">template-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../template-formula/1.3.17/README.html">1.3.17</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.16/README.html">1.3.16</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.15/README.html">1.3.15</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.14/README.html">1.3.14</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.13/README.html">1.3.13</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.12/README.html">1.3.12</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.11/README.html">1.3.11</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.10/README.html">1.3.10</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.9/README.html">1.3.9</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.8/README.html">1.3.8</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.7/README.html">1.3.7</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.6/README.html">1.3.6</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.5/README.html">1.3.5</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.4/README.html">1.3.4</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.3/README.html">1.3.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.2/README.html">1.3.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.1/README.html">1.3.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.0/README.html">1.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../timezone-formula/0.4.4/README.html">timezone-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../timezone-formula/0.4.4/README.html">0.4.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tomcat-formula/0.19.5/README.html">tomcat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../tomcat-formula/0.19.5/README.html">0.19.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ufw-formula/0.5.7/README.html">ufw-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ufw-formula/0.5.7/README.html">0.5.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../users-formula/1.46.0/README.html">users-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../users-formula/1.46.0/README.html">1.46.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../varnish-formula/0.4.1/README.html">varnish-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../varnish-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vault-formula/1.2.5/README.html">vault-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vault-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vim-formula/0.15.4/README.html">vim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vim-formula/0.15.4/README.html">0.15.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vsftpd-formula/0.3.2/README.html">vsftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vsftpd-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../zabbix-formula/1.1.0/README.html">zabbix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../zabbix-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../main/1.1.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="README.html">php-formula</a></li>
+    <li>Repo documentation</li>
+    <li><a href="README.html">README</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/myii/php-formula/edit/antora/docs/modules/ROOT/pages/README.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">php-formula</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://travis-ci.com/saltstack-formulas/php-formula"><span class="image"><img src="https://travis-ci.com/saltstack-formulas/php-formula.svg?branch=master" alt="Travis CI Build Status"></span></a>
+<a href="https://github.com/semantic-release/semantic-release"><span class="image"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic&#8212;&#8203;release-e10079.svg" alt="Semantic Release"></span></a></p>
+</div>
+<div class="paragraph">
+<p>Formula to set up and configure php</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">WARNING: BREAKING CHANGES SINCE <code>v1.0.0</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Prior to
+<a href="https://github.com/saltstack-formulas/php-formula/releases/tag/v1.0.0">v1.0.0</a>,
+this formula provided two methods for managing PHP; the old method under
+<code>php</code> and the new method under <code>php.ng</code>. The old method has now been
+removed and <code>php.ng</code> has been promoted to be <code>php</code> in its place.</p>
+</div>
+<div class="paragraph">
+<p>If you are not in a position to migrate, please pin your repo to the
+final release tag before
+<a href="https://github.com/saltstack-formulas/php-formula/releases/tag/v1.0.0">v1.0.0</a>,
+i.e.
+<a href="https://github.com/saltstack-formulas/php-formula/releases/tag/v0.40.1">v0.40.1</a>.</p>
+</div>
+<div class="paragraph">
+<p>To migrate from <code>php.ng</code>, simply modify your pillar to promote the
+entire section under <code>php:ng</code> so that it is under <code>php</code> instead. So with
+the editor of your choice, highlight the entire section and then
+unindent one level. Finish by removing the <code>ng:</code> line.</p>
+</div>
+<div class="paragraph">
+<p>To migrate from the old <code>php</code>, first convert to <code>php.ng</code> under
+<a href="https://github.com/saltstack-formulas/php-formula/releases/tag/v0.40.1">v0.40.1</a>.
+and then follow the steps laid out in the paragraph directly above.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_notes"><a class="anchor" href="#_general_notes"></a>1. General notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See the full
+<a href="https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html">SaltStack
+Formulas installation and usage instructions</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you are interested in writing or contributing to formulas, please pay
+attention to the
+<a href="https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#writing-formulas">Writing
+Formula Section</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use this formula, please pay attention to the <code>FORMULA</code>
+file and/or <code>git tag</code>, which contains the currently released version.
+This formula is versioned according to <a href="http://semver.org/">Semantic
+Versioning</a>.</p>
+</div>
+<div class="paragraph">
+<p>See
+<a href="https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning">Formula
+Versioning Section</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contributing_to_this_repo"><a class="anchor" href="#_contributing_to_this_repo"></a>2. Contributing to this repo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Commit message formatting is significant!!</strong></p>
+</div>
+<div class="paragraph">
+<p>Please see
+<a href="../../main/1.1.0/CONTRIBUTING.html" class="page">How
+to contribute</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_available_states"><a class="anchor" href="#_available_states"></a>3. Available states</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please provide feedback by filing issues, discussing in <code>#salt</code> in
+Freenode and the mailing list as normal.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> php states require the merge parameter of
+salt.modules.pillar.get(), first available in the Helium release.</p>
+</div>
+<div class="sect2">
+<h3 id="_php"><a class="anchor" href="#_php"></a>3.1. <code>php</code></h3>
+<div class="paragraph">
+<p>Installs the php package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_adodb"><a class="anchor" href="#_php_adodb"></a>3.2. <code>php.adodb</code></h3>
+<div class="paragraph">
+<p>Installs the php-adodb package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_apache2"><a class="anchor" href="#_php_apache2"></a>3.3. <code>php.apache2</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines <a href="#php.apache2.install">php.apache2.install</a>
+and <a href="#php.apache2.ini">php.apache2.ini</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_apache2_ini"><a class="anchor" href="#_php_apache2_ini"></a>3.4. <code>php.apache2.ini</code></h3>
+<div class="paragraph">
+<p>Manages the apache2 php.ini file</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_apache2_install"><a class="anchor" href="#_php_apache2_install"></a>3.5. <code>php.apache2.install</code></h3>
+<div class="paragraph">
+<p>Installs the apache2 and libapache2-mod-php5 package. Debian Only.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_apc"><a class="anchor" href="#_php_apc"></a>3.6. <code>php.apc</code></h3>
+<div class="paragraph">
+<p>Installs the php-apc package. Disabled on opensuse need server:php repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_apcu"><a class="anchor" href="#_php_apcu"></a>3.7. <code>php.apcu</code></h3>
+<div class="paragraph">
+<p>Installs the php-apcu package. Disabled on opensuse need server:php repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_auth_sasl"><a class="anchor" href="#_php_auth_sasl"></a>3.8. <code>php.auth-sasl</code></h3>
+<div class="paragraph">
+<p>Installs the php-auth-sasl package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_bcmath"><a class="anchor" href="#_php_bcmath"></a>3.9. <code>php.bcmath</code></h3>
+<div class="paragraph">
+<p>Installs the php-bcmath package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_bz2"><a class="anchor" href="#_php_bz2"></a>3.10. <code>php.bz2</code></h3>
+<div class="paragraph">
+<p>Installs the php-bz2 package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_cache_lite"><a class="anchor" href="#_php_cache_lite"></a>3.11. <code>php.cache-lite</code></h3>
+<div class="paragraph">
+<p>Installs the php-cache-lite package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_cgi"><a class="anchor" href="#_php_cgi"></a>3.12. <code>php.cgi</code></h3>
+<div class="paragraph">
+<p>Installs the php-cgi package. Disabled on opensuse only php5-fastcgi
+available.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_cli"><a class="anchor" href="#_php_cli"></a>3.13. <code>php.cli</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines <a href="#php.cli.install">php.cli.install</a> and
+<a href="#php.cli.ini">php.cli.ini</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_cli_ini"><a class="anchor" href="#_php_cli_ini"></a>3.14. <code>php.cli.ini</code></h3>
+<div class="paragraph">
+<p>Manages the php-cli ini file.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_cli_install"><a class="anchor" href="#_php_cli_install"></a>3.15. <code>php.cli.install</code></h3>
+<div class="paragraph">
+<p>Installs the php-cli package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_composer"><a class="anchor" href="#_php_composer"></a>3.16. <code>php.composer</code></h3>
+<div class="paragraph">
+<p>Installs [composer](<a href="https://getcomposer.org" class="bare">https://getcomposer.org</a>) and keeps it updated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_console_table"><a class="anchor" href="#_php_console_table"></a>3.17. <code>php.console-table</code></h3>
+<div class="paragraph">
+<p>Installs the php-console-table package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_ctype"><a class="anchor" href="#_php_ctype"></a>3.18. <code>php.ctype</code></h3>
+<div class="paragraph">
+<p>Installs the php-ctype package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_curl"><a class="anchor" href="#_php_curl"></a>3.19. <code>php.curl</code></h3>
+<div class="paragraph">
+<p>Installs the php5-curl package on Debian, and ensures that curl itself
+is installed for RedHat systems, this is due to the curl libs being
+provided by php-common, which will get installed with the main php
+package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_dba"><a class="anchor" href="#_php_dba"></a>3.20. <code>php.dba</code></h3>
+<div class="paragraph">
+<p>Installs the php-dba package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_dev"><a class="anchor" href="#_php_dev"></a>3.21. <code>php.dev</code></h3>
+<div class="paragraph">
+<p>Installs the php5-dev and build-essential package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_filter"><a class="anchor" href="#_php_filter"></a>3.22. <code>php.filter</code></h3>
+<div class="paragraph">
+<p>Installs the php-filter package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm"><a class="anchor" href="#_php_fpm"></a>3.23. <code>php.fpm</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines all php.fpm states.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm_config"><a class="anchor" href="#_php_fpm_config"></a>3.24. <code>php.fpm.config</code></h3>
+<div class="paragraph">
+<p>Manages the (non-pool) php-fpm config files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm_install"><a class="anchor" href="#_php_fpm_install"></a>3.25. <code>php.fpm.install</code></h3>
+<div class="paragraph">
+<p>Installs the php-fpm package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm_pools"><a class="anchor" href="#_php_fpm_pools"></a>3.26. <code>php.fpm.pools</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines <a href="#php.fpm.service">php.fpm.service</a> and
+<a href="#php.fpm.pools_config">php.fpm.pools_config</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm_pools_config"><a class="anchor" href="#_php_fpm_pools_config"></a>3.27. <code>php.fpm.pools_config</code></h3>
+<div class="paragraph">
+<p>Manages php-fpm pool config files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_fpm_service"><a class="anchor" href="#_php_fpm_service"></a>3.28. <code>php.fpm.service</code></h3>
+<div class="paragraph">
+<p>Manages the php-fpm service.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_gd"><a class="anchor" href="#_php_gd"></a>3.29. <code>php.gd</code></h3>
+<div class="paragraph">
+<p>Installs the php-gd package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_gearman"><a class="anchor" href="#_php_gearman"></a>3.30. <code>php.gearman</code></h3>
+<div class="paragraph">
+<p>Installs the php-gearman package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_geoip"><a class="anchor" href="#_php_geoip"></a>3.31. <code>php.geoip</code></h3>
+<div class="paragraph">
+<p>Installs the php-geoip package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_geshi"><a class="anchor" href="#_php_geshi"></a>3.32. <code>php.geshi</code></h3>
+<div class="paragraph">
+<p>Installs the php-geshi package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_gettext"><a class="anchor" href="#_php_gettext"></a>3.33. <code>php.gettext</code></h3>
+<div class="paragraph">
+<p>Installs the php-gettext package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_gmp"><a class="anchor" href="#_php_gmp"></a>3.34. <code>php.gmp</code></h3>
+<div class="paragraph">
+<p>Installs the php-gmp package. Debian Only.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hash"><a class="anchor" href="#_php_hash"></a>3.35. <code>php.hash</code></h3>
+<div class="paragraph">
+<p>Installs the php-hash package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_http"><a class="anchor" href="#_php_http"></a>3.36. <code>php.http</code></h3>
+<div class="paragraph">
+<p>Installs the php-http package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hhvm"><a class="anchor" href="#_php_hhvm"></a>3.37. <code>php.hhvm</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines php.hhvm states</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hhvm_config"><a class="anchor" href="#_php_hhvm_config"></a>3.38. <code>php.hhvm.config</code></h3>
+<div class="paragraph">
+<p>Manages the php-hhvm config files</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hhvm_install"><a class="anchor" href="#_php_hhvm_install"></a>3.39. <code>php.hhvm.install</code></h3>
+<div class="paragraph">
+<p>Installs the php-hhvm package</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hhvm_repo"><a class="anchor" href="#_php_hhvm_repo"></a>3.40. <code>php.hhvm.repo</code></h3>
+<div class="paragraph">
+<p>Configures the hhvm repo for debian/ubuntu</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_hhvm_service"><a class="anchor" href="#_php_hhvm_service"></a>3.41. <code>php.hhvm.service</code></h3>
+<div class="paragraph">
+<p>Manages the php-hhvm service.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_igbinary"><a class="anchor" href="#_php_igbinary"></a>3.42. <code>php.igbinary</code></h3>
+<div class="paragraph">
+<p>Installs the php-igbinary package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_imagick"><a class="anchor" href="#_php_imagick"></a>3.43. <code>php.imagick</code></h3>
+<div class="paragraph">
+<p>Installs the php-imagick package. Disabled on opensuse no package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_imap"><a class="anchor" href="#_php_imap"></a>3.44. <code>php.imap</code></h3>
+<div class="paragraph">
+<p>Installs the php-imap package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_intl"><a class="anchor" href="#_php_intl"></a>3.45. <code>php.intl</code></h3>
+<div class="paragraph">
+<p>Installs the php-intl package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_json"><a class="anchor" href="#_php_json"></a>3.46. <code>php.json</code></h3>
+<div class="paragraph">
+<p>Installs the php-json package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_ldap"><a class="anchor" href="#_php_ldap"></a>3.47. <code>php.ldap</code></h3>
+<div class="paragraph">
+<p>Installs the php-ldap package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mail"><a class="anchor" href="#_php_mail"></a>3.48. <code>php.mail</code></h3>
+<div class="paragraph">
+<p>Installs the php-mail package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mbstring"><a class="anchor" href="#_php_mbstring"></a>3.49. <code>php.mbstring</code></h3>
+<div class="paragraph">
+<p>Installs the php-mbstring package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mcrypt"><a class="anchor" href="#_php_mcrypt"></a>3.50. <code>php.mcrypt</code></h3>
+<div class="paragraph">
+<p>Installs the php-mcrypt package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mdb2"><a class="anchor" href="#_php_mdb2"></a>3.51. <code>php.mdb2</code></h3>
+<div class="paragraph">
+<p>Installs the php-mdb2 package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mdb2_driver_mysql"><a class="anchor" href="#_php_mdb2_driver_mysql"></a>3.52. <code>php.mdb2-driver-mysql</code></h3>
+<div class="paragraph">
+<p>Installs the php-mdb2-driver-mysql package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mdb2_driver_pgsql"><a class="anchor" href="#_php_mdb2_driver_pgsql"></a>3.53. <code>php.mdb2-driver-pgsql</code></h3>
+<div class="paragraph">
+<p>Installs the php-mdb2-driver-pgsql package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_memcache"><a class="anchor" href="#_php_memcache"></a>3.54. <code>php.memcache</code></h3>
+<div class="paragraph">
+<p>Installs the php-memcache package. Disabled on opensuse need
+server:php:extensions repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_memcached"><a class="anchor" href="#_php_memcached"></a>3.55. <code>php.memcached</code></h3>
+<div class="paragraph">
+<p>Installs the php-memcached package. Disabled on opensuse need
+server:php:extensions repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_modules"><a class="anchor" href="#_php_modules"></a>3.56. <code>php.modules</code></h3>
+<div class="paragraph">
+<p>Calls <code>php.&lt;name&gt;</code> for each entry in <code>php:modules</code> if available, or try
+to install the matching packages that can be set via from
+<code>php:lookup:pkgs</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mongo"><a class="anchor" href="#_php_mongo"></a>3.57. <code>php.mongo</code></h3>
+<div class="paragraph">
+<p>Installs the php-mongo package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mongodb"><a class="anchor" href="#_php_mongodb"></a>3.58. <code>php.mongodb</code></h3>
+<div class="paragraph">
+<p>Installs the php-mongodb package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_msgpack"><a class="anchor" href="#_php_msgpack"></a>3.59. <code>php.msgpack</code></h3>
+<div class="paragraph">
+<p>Installs the php-msgpack package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mysql"><a class="anchor" href="#_php_mysql"></a>3.60. <code>php.mysql</code></h3>
+<div class="paragraph">
+<p>Installs the php-mysql package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_mysqlnd"><a class="anchor" href="#_php_mysqlnd"></a>3.61. <code>php.mysqlnd</code></h3>
+<div class="paragraph">
+<p>Installs the php-mysqlnd package. Disabled on opensuse no package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_net_smtp"><a class="anchor" href="#_php_net_smtp"></a>3.62. <code>php.net-smtp</code></h3>
+<div class="paragraph">
+<p>Installs the php-net-smtp package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_net4"><a class="anchor" href="#_php_net4"></a>3.63. <code>php.net4</code></h3>
+<div class="paragraph">
+<p>Installs the php-net4 package.</p>
+</div>
+<div class="paragraph">
+<p><code>php.net6</code> <sup>^</sup><sup>^</sup><sup>^</sup>^^NET6</p>
+</div>
+<div class="paragraph">
+<p>Installs the php-net6 package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_oauth"><a class="anchor" href="#_php_oauth"></a>3.64. <code>php.oauth</code></h3>
+<div class="paragraph">
+<p>Installs the php-oauth package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_opcache"><a class="anchor" href="#_php_opcache"></a>3.65. <code>php.opcache</code></h3>
+<div class="paragraph">
+<p>Installs the php-opcache package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_openssl"><a class="anchor" href="#_php_openssl"></a>3.66. <code>php.openssl</code></h3>
+<div class="paragraph">
+<p>Installs the php-openssl package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_pear"><a class="anchor" href="#_php_pear"></a>3.67. <code>php.pear</code></h3>
+<div class="paragraph">
+<p>Installs the php-pear package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_pgsql"><a class="anchor" href="#_php_pgsql"></a>3.68. <code>php.pgsql</code></h3>
+<div class="paragraph">
+<p>Installs the php-pgsql package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_phar"><a class="anchor" href="#_php_phar"></a>3.69. <code>php.phar</code></h3>
+<div class="paragraph">
+<p>Installs the php-phar package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_posix"><a class="anchor" href="#_php_posix"></a>3.70. <code>php.posix</code></h3>
+<div class="paragraph">
+<p>Installs the php-posix package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_pspell"><a class="anchor" href="#_php_pspell"></a>3.71. <code>php.pspell</code></h3>
+<div class="paragraph">
+<p>Installs the php-pspell package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_readline"><a class="anchor" href="#_php_readline"></a>3.72. <code>php.readline</code></h3>
+<div class="paragraph">
+<p>Installs the php-readline package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_redis"><a class="anchor" href="#_php_redis"></a>3.73. <code>php.redis</code></h3>
+<div class="paragraph">
+<p>Installs the php-redis package. Disabled on opensuse need
+server:php:extensions repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_seclib"><a class="anchor" href="#_php_seclib"></a>3.74. <code>php.seclib</code></h3>
+<div class="paragraph">
+<p>Installs the php-seclib package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_session"><a class="anchor" href="#_php_session"></a>3.75. <code>php.session</code></h3>
+<div class="paragraph">
+<p>Installs the php-session package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_snmp"><a class="anchor" href="#_php_snmp"></a>3.76. <code>php.snmp</code></h3>
+<div class="paragraph">
+<p>Installs the php-snmp package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_soap"><a class="anchor" href="#_php_soap"></a>3.77. <code>php.soap</code></h3>
+<div class="paragraph">
+<p>Installs the php-soap package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_sqlite"><a class="anchor" href="#_php_sqlite"></a>3.78. <code>php.sqlite</code></h3>
+<div class="paragraph">
+<p>Installs the php-sqlite package,</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_ssh2"><a class="anchor" href="#_php_ssh2"></a>3.79. <code>php.ssh2</code></h3>
+<div class="paragraph">
+<p>Installs the php-ssh2 package,</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_suhosin"><a class="anchor" href="#_php_suhosin"></a>3.80. <code>php.suhosin</code></h3>
+<div class="paragraph">
+<p>Installs the php-suhosin package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_svn"><a class="anchor" href="#_php_svn"></a>3.81. <code>php.svn</code></h3>
+<div class="paragraph">
+<p>Installs the php-svn package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_sybase"><a class="anchor" href="#_php_sybase"></a>3.82. <code>php.sybase</code></h3>
+<div class="paragraph">
+<p>Installs the php-sybase package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_tcpdf"><a class="anchor" href="#_php_tcpdf"></a>3.83. <code>php.tcpdf</code></h3>
+<div class="paragraph">
+<p>Installs the php-tcpdf package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_tidy"><a class="anchor" href="#_php_tidy"></a>3.84. <code>php.tidy</code></h3>
+<div class="paragraph">
+<p>Installs the php-tidy package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_uuid"><a class="anchor" href="#_php_uuid"></a>3.85. <code>php.uuid</code></h3>
+<div class="paragraph">
+<p>Installs the php-uuid package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xcache"><a class="anchor" href="#_php_xcache"></a>3.86. <code>php.xcache</code></h3>
+<div class="paragraph">
+<p>Meta-state that combines <a href="#php.xcache.install">php.xcache.install</a>
+and <a href="#php.xcache.ini">php.xcache.ini</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xcache_ini"><a class="anchor" href="#_php_xcache_ini"></a>3.87. <code>php.xcache.ini</code></h3>
+<div class="paragraph">
+<p>Manages the php-xcache ini file</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xcache_install"><a class="anchor" href="#_php_xcache_install"></a>3.88. <code>php.xcache.install</code></h3>
+<div class="paragraph">
+<p>Installs the php-xcache package. Disabled on opensuse need
+server:php:extensions repo</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xdebug"><a class="anchor" href="#_php_xdebug"></a>3.89. <code>php.xdebug</code></h3>
+<div class="paragraph">
+<p>Installs the php-xdebug package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xml"><a class="anchor" href="#_php_xml"></a>3.90. <code>php.xml</code></h3>
+<div class="paragraph">
+<p>Installs the php-xml package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_xsl"><a class="anchor" href="#_php_xsl"></a>3.91. <code>php.xsl</code></h3>
+<div class="paragraph">
+<p>Installs the php-xsl package.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_php_zip"><a class="anchor" href="#_php_zip"></a>3.92. <code>php.zip</code></h3>
+<div class="paragraph">
+<p>Installs the php-zip package.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing"><a class="anchor" href="#_testing"></a>4. Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Linux testing is done with <code>kitchen-salt</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>4.1. Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Ruby</p>
+</li>
+<li>
+<p>Docker</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ gem install bundler
+$ bundle install
+$ bin/kitchen test [platform]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <code>[platform]</code> is the platform name defined in <code>kitchen.yml</code>, e.g.
+<code>debian-9-2019-2-py3</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_converge"><a class="anchor" href="#_binkitchen_converge"></a>4.2. <code>bin/kitchen converge</code></h3>
+<div class="paragraph">
+<p>Creates the docker instance and runs the <code>php</code> main states, ready for
+testing.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_verify"><a class="anchor" href="#_binkitchen_verify"></a>4.3. <code>bin/kitchen verify</code></h3>
+<div class="paragraph">
+<p>Runs the <code>inspec</code> tests on the actual instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_destroy"><a class="anchor" href="#_binkitchen_destroy"></a>4.4. <code>bin/kitchen destroy</code></h3>
+<div class="paragraph">
+<p>Removes the docker instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_test"><a class="anchor" href="#_binkitchen_test"></a>4.5. <code>bin/kitchen test</code></h3>
+<div class="paragraph">
+<p>Runs all of the stages above in one go: i.e. <code>destroy</code> + <code>converge</code><br>
+<code>verify</code> + <code>destroy</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_login"><a class="anchor" href="#_binkitchen_login"></a>4.6. <code>bin/kitchen login</code></h3>
+<div class="paragraph">
+<p>Gives you SSH access to the instance for manual testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_with_vagrant"><a class="anchor" href="#_testing_with_vagrant"></a>5. Testing with Vagrant</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Windows/FreeBSD/OpenBSD testing is done with <code>kitchen-salt</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements_2"><a class="anchor" href="#_requirements_2"></a>5.1. Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Ruby</p>
+</li>
+<li>
+<p>Virtualbox</p>
+</li>
+<li>
+<p>Vagrant</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup"><a class="anchor" href="#_setup"></a>5.2. Setup</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ gem install bundler
+$ bundle install --with=vagrant
+$ bin/kitchen test [platform]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <code>[platform]</code> is the platform name defined in
+<code>kitchen.vagrant.yml</code>, e.g. <code>windows-81-latest-py3</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_note"><a class="anchor" href="#_note"></a>5.3. Note</h3>
+<div class="paragraph">
+<p>When testing using Vagrant you must set the environment variable
+<code>KITCHEN_LOCAL_YAML</code> to <code>kitchen.vagrant.yml</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ KITCHEN_LOCAL_YAML=kitchen.vagrant.yml bin/kitchen test      # Alternatively,
+$ export KITCHEN_LOCAL_YAML=kitchen.vagrant.yml
+$ bin/kitchen test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then run the following commands as needed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_converge_2"><a class="anchor" href="#_binkitchen_converge_2"></a>5.4. <code>bin/kitchen converge</code></h3>
+<div class="paragraph">
+<p>Creates the Vagrant instance and runs the <code>php</code> main states, ready for
+testing.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_verify_2"><a class="anchor" href="#_binkitchen_verify_2"></a>5.5. <code>bin/kitchen verify</code></h3>
+<div class="paragraph">
+<p>Runs the <code>inspec</code> tests on the actual instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_destroy_2"><a class="anchor" href="#_binkitchen_destroy_2"></a>5.6. <code>bin/kitchen destroy</code></h3>
+<div class="paragraph">
+<p>Removes the Vagrant instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_test_2"><a class="anchor" href="#_binkitchen_test_2"></a>5.7. <code>bin/kitchen test</code></h3>
+<div class="paragraph">
+<p>Runs all of the stages above in one go: i.e. <code>destroy</code> + <code>converge</code><br>
+<code>verify</code> + <code>destroy</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binkitchen_login_2"><a class="anchor" href="#_binkitchen_login_2"></a>5.8. <code>bin/kitchen login</code></h3>
+<div class="paragraph">
+<p>Gives you RDP/SSH access to the instance for manual testing.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="CHANGELOG.html">Changelog</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using a customised version of the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/tabs-block-behavior.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+/* Use to display the latest version separately from the remaining versions */
+.nav-panel-explore .component {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+.nav-panel-explore .versions.is-latest {
+    flex: max-content;
+    justify-content: end;
+    break-after: always;
+}

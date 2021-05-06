@@ -1,0 +1,3148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>map.jinja: gather formula configuration values :: SaltStack Formulas</title>
+    <link rel="canonical" href="https://saltstack-formulas.netlify.app/main/1.1.0/map.jinja.html">
+    <link rel="prev" href="TOFS_pattern.html">
+    <link rel="next" href="../../apache-formula/1.1.3/README.html">
+    <meta name="generator" content="Antora 3.0.0-alpha.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/site-extra.css">
+    <script>var uiRootPath = '../../_'</script>
+    <link rel="icon" href="../../_/img/ssf/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://saltstack-formulas.netlify.app">
+        <!-- <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:30px;height:30px;" />&#38;nbsp;SaltStack Formulas -->
+        <img src="../../_/img/ssf/SaltStack.png" alt="SaltStack" style="width:25px;height:25px;" />&nbsp;SaltStack Formulas
+      </a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- <div class="navbar&#45;item&#45;divider"></div>  -->
+        <!-- <a class="navbar&#45;item" href="#">Home</a> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Products</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Product A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Product C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Services</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Service A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Service C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="navbar&#45;item has&#45;dropdown is&#45;hoverable"> -->
+        <!--   <a class="navbar&#45;link" href="#">Resources</a> -->
+        <!--   <div class="navbar&#45;dropdown"> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource A</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource B</a> -->
+        <!--     <a class="navbar&#45;item" href="#">Resource C</a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        
+        <!-- Have these in a separate `div`? -->
+
+        <!-- Repos -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://github.com/saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitHub.png" alt="GitHub" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://gitlab.com/saltstack-formulas" target="_blank">
+          <!-- 714 x 660 -->
+          <!-- <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:32.5px;height:30px;" /> -->
+          <img src="../../_/img/ssf/GitLab.png" alt="GitLab" style="width:27px;height:25px;" />
+        </a>
+
+        <!-- Pre-salted images and boxes -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://hub.docker.com/u/saltimages" target="_blank">
+          <!-- 1008 x 722 -->
+          <!-- <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:33.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Docker_Hub.png" alt="Docker Hub" style="width:27.9px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://app.vagrantup.com/boxes/search?provider=virtualbox&q=%22Pre-salted+minion%22" target="_blank">
+          <!-- 1182 x 1220 -->
+          <!-- <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:23.3px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Vagrant_Cloud.png" alt="Vagrant Cloud" style="width:19.4px;height:20px;" />
+        </a>
+
+        <!-- Chat -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://saltstackcommunity.slack.com/messages/C7LG8SV54/" target="_blank">
+          <!-- <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Slack.png" alt="Slack" style="width:20px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://matrix.to/#/#saltstack-formulas:matrix.org" target="_blank">
+          <!-- 499 x 520 -->
+          <img src="../../_/img/ssf/Matrix.png" alt="Matrix" style="width:22.1px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://t.me/saltstack_formulas" target="_blank">
+          <img src="../../_/img/ssf/Telegram.svg" alt="Telegram" style="width:22px;height:22px;" />
+        </a>
+        <!-- ircs://chat.freenode.net/saltstack-formulas -->
+        <a class="navbar-item" href="https://webchat.freenode.net/?channels=saltstack-formulas" target="_blank">
+          <!-- 271 x 55 -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:73.9px;height:15px;" /> -->
+          <!-- <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:59.1px;height:12px;" /> -->
+          <!-- 64 x 55 -->
+          <img src="../../_/img/ssf/Freenode.png" alt="Freenode" style="width:23.3px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://freenode.logbot.info/saltstack-formulas" target="_blank">
+          <!-- 83 x 62 -->
+          <img src="../../_/img/ssf/LogBot.svg" alt="LogBot" style="width:26.8px;height:20px;" />
+        </a>
+        <a class="navbar-item" href="https://saltstack-formulas.zulipchat.com" target="_blank">
+          <!-- 360 x 401 -->
+          <!-- <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:21.5px;height:24px;" /> -->
+          <img src="../../_/img/ssf/Zulip.svg" alt="Zulip" style="width:18px;height:20px;" />
+        </a>
+
+        <!-- Working group: project management -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://tree.taiga.io/project/myii-saltstack-formulas" target="_blank">
+          <!-- <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Taiga.png" alt="Taiga" style="width:25px;height:25px;" />
+        </a>
+        <a class="navbar-item" href="https://meet.jit.si/myiisaltstackformulas" target="_blank">
+          <!-- 712 x 1056 -->
+          <!-- <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:24.2px;height:36px;" /> -->
+          <img src="../../_/img/ssf/Jitsi.png" alt="Jitsi" style="width:20.2px;height:30px;" />
+        </a>
+
+        <!-- Working group: meetings & recordings -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://VMware.zoom.us/j/98009043675?pwd=cm0rOXNZL0lrVFlzZHZkSUprVnZ6dz09" target="_blank">
+          <!-- 4094 x 920 -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:53.4px;height:12px;" /> -->
+          <!-- <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:44.5px;height:10px;" /> -->
+          <!-- 625 x 625 -->
+          <img src="../../_/img/ssf/Zoom.png" alt="Zoom" style="width:23px;height:23px;" />
+        </a>
+        <a class="navbar-item" href="https://www.youtube.com/watch?v=P5k5W6iEl_c&list=PL9svBjLDUl_8QNmemBGKnEyRTcLl4or6f" target="_blank">
+          <!-- 611 x 429 -->
+          <!-- <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:34.2px;height:24px;" /> -->
+          <img src="../../_/img/ssf/YouTube.png" alt="YouTube" style="width:28.5px;height:20px;" />
+        </a>
+
+        <!-- Other -->
+        <div class="navbar-item-divider"></div> 
+        <a class="navbar-item" href="https://cauldron.io/project/314" target="_blank">
+          <!-- <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:30px;height:30px;" /> -->
+          <img src="../../_/img/ssf/Kibana.png" alt="Kibana" style="width:24px;height:24px;" />
+        </a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">SaltStack Formulas</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General formula docs</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html">How to contribute</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html#commit_message_formatting">Commit message formatting</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#automatic_version_bump">Automatic version bump</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#commit_type_vs_version_bump">Commit type vs. version bump</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="CONTRIBUTING.html#documentation">Documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CONTRIBUTING.html#saltstack_formulas_rst_page_template">RST page template</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="TOFS_pattern.html">TOFS: A pattern for using SaltStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="TOFS_pattern.html#before_tofs">Before TOFS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="TOFS_pattern.html#template_override">Template Override</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="TOFS_pattern.html#files_switch">Files Switch</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="TOFS_pattern.html#files_switch_macro">Files Switch macro</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="TOFS_pattern.html#customise_source">Customise <code>source</code> further</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="map.jinja.html"><code>map.jinja</code>: gather formula configuration values</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">GitHub repositories</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Semantic-release formulas</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../apache-formula/1.1.3/README.html">apache-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../apt-cacher-formula/0.7.3/README.html">apt-cacher-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../apt-formula/0.9.1/README.html">apt-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../arvados-formula/1.1.4/README.html">arvados-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bind-formula/0.19.2/README.html">bind-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cert-formula/1.2.0/README.html">cert-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../chrony-formula/1.2.5/README.html">chrony-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../collectd-formula/1.1.4/README.html">collectd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../consul-formula/1.0.0/README.html">consul-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cron-formula/0.3.2/README.html">cron-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deepsea-formula/1.1.0/README.html">deepsea-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../devstack-formula/1.0.2/README.html">devstack-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../dhcpd-formula/0.9.0/README.html">dhcpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../django-formula/0.5.0/README.html">django-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../docker-formula/2.0.3/README.html">docker-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eclipse-formula/1.1.1/README.html">eclipse-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../epel-formula/1.15.5/README.html">epel-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../exim-formula/0.7.1/README.html">exim-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../fail2ban-formula/1.1.2/README.html">fail2ban-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../firewalld-formula/1.2.1/README.html">firewalld-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../golang-formula/0.7.5/README.html">golang-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../grafana-formula/3.1.2/README.html">grafana-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../haproxy-formula/0.17.1/README.html">haproxy-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../hostsfile-formula/0.8.1/README.html">hostsfile-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../icinga2-formula/0.9.0/README.html">icinga2-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../influxdb-formula/0.3.3/README.html">influxdb-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../iptables-formula/0.17.4/README.html">iptables-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../iscsi-formula/1.2.0/README.html">iscsi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../java-formula/2.0.0/README.html">java-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-appcode-formula/1.0.3/README.html">jetbrains-appcode-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-clion-formula/1.2.1/README.html">jetbrains-clion-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-datagrip-formula/1.2.1/README.html">jetbrains-datagrip-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-goland-formula/1.2.1/README.html">jetbrains-goland-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-intellij-formula/1.2.1/README.html">jetbrains-intellij-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-phpstorm-formula/1.2.1/README.html">jetbrains-phpstorm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-pycharm-formula/1.2.1/README.html">jetbrains-pycharm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-resharper-formula/1.2.2/README.html">jetbrains-resharper-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-rider-formula/1.2.1/README.html">jetbrains-rider-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-rubymine-formula/1.1.1/README.html">jetbrains-rubymine-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../jetbrains-webstorm-formula/1.2.1/README.html">jetbrains-webstorm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../keepalived-formula/0.6.0/README.html">keepalived-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../letsencrypt-formula/2.1.0/README.html">letsencrypt-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../libvirt-formula/3.9.0/README.html">libvirt-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../locale-formula/0.3.5/README.html">locale-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../logrotate-formula/0.9.0/README.html">logrotate-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../lvm-formula/0.3.3/README.html">lvm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../lynis-formula/0.4.2/README.html">lynis-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../maven-formula/1.0.2/README.html">maven-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../mongodb-formula/1.0.2/README.html">mongodb-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../mysql-formula/0.55.1/README.html">mysql-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../nfs-formula/0.12.0/README.html">nfs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../nginx-formula/2.7.0/README.html">nginx-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../nifi-formula/0.8.0/README.html">nifi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../node-formula/1.0.1/README.html">node-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ntp-formula/0.19.2/README.html">ntp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../nut-formula/1.1.0/README.html">nut-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openldap-formula/0.8.0/README.html">openldap-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openntpd-formula/0.2.4/README.html">openntpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openssh-formula/3.0.1/README.html">openssh-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openvpn-formula/1.15.1/README.html">openvpn-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../packages-formula/0.9.0/README.html">packages-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../php-formula/1.4.0/README.html">php-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../postfix-formula/2.0.0/README.html">postfix-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../postgres-formula/0.41.7/README.html">postgres-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../powerdns-formula/0.3.4/README.html">powerdns-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../proftpd-formula/0.5.0/README.html">proftpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../prometheus-formula/5.4.0/README.html">prometheus-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../rabbitmq-formula/1.0.0/README.html">rabbitmq-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../redis-formula/0.27.2/README.html">redis-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../rkhunter-formula/0.4.3/README.html">rkhunter-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../rng-tools-formula/0.2.0/README.html">rng-tools-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../rspamd-formula/0.1.3/README.html">rspamd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../salt-formula/1.8.4/README.html">salt-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../sqldeveloper-formula/1.0.1/README.html">sqldeveloper-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../sqlplus-formula/1.0.1/README.html">sqlplus-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../strongswan-formula/0.3.0/README.html">strongswan-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../stunnel-formula/0.2.3/README.html">stunnel-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../sudoers-formula/0.23.4/README.html">sudoers-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../suricata-formula/1.0.2/README.html">suricata-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../sysctl-formula/0.6.3/README.html">sysctl-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../syslog-ng-formula/0.5.1/README.html">syslog-ng-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../sysstat-formula/0.4.1/README.html">sysstat-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../systemd-formula/0.19.0/README.html">systemd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../telegraf-formula/1.0.3/README.html">telegraf-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../template-formula/1.3.17/README.html">template-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../timezone-formula/0.4.4/README.html">timezone-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tomcat-formula/0.19.5/README.html">tomcat-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ufw-formula/0.5.7/README.html">ufw-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../users-formula/1.46.0/README.html">users-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../varnish-formula/0.4.1/README.html">varnish-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../vault-formula/1.2.5/README.html">vault-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../vim-formula/0.15.4/README.html">vim-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../vsftpd-formula/0.3.2/README.html">vsftpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../zabbix-formula/1.1.0/README.html">zabbix-formula</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Other formulas</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#accumulo-formula::README.adoc">accumulo-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ad-formula::README.adoc">ad-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#aegir-formula::README.adoc">aegir-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#alsa-formula::README.adoc">alsa-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#androidstudio-formula::README.adoc">androidstudio-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#aptly-formula::README.adoc">aptly-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#aptmirror-formula::README.adoc">aptmirror-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#asterisk-formula::README.adoc">asterisk-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#avahi-formula::README.adoc">avahi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#aws-formula::README.adoc">aws-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#backupninja-formula::README.adoc">backupninja-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#backuptocloud-formula::README.adoc">backuptocloud-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#bareos-formula::README.adoc">bareos-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#barman-formula::README.adoc">barman-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#beats-formula::README.adoc">beats-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#beaver-formula::README.adoc">beaver-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#boundary-formula::README.adoc">boundary-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#bro-formula::README.adoc">bro-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#build-essential-formula::README.adoc">build-essential-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#canvas-formula::README.adoc">canvas-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cassandra-formula::README.adoc">cassandra-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ceph-formula::README.adoc">ceph-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cerebro-formula::README.adoc">cerebro-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#charles-formula::README.adoc">charles-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#chartmuseum-formula::README.adoc">chartmuseum-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#chef-formula::README.adoc">chef-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cherrypy-formula::README.adoc">cherrypy-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#chrome-formula::README.adoc">chrome-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#chromium-formula::README.adoc">chromium-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#circus-formula::README.adoc">circus-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#citrix-linuxvda-formula::README.adoc">citrix-linuxvda-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ckan-formula::README.adoc">ckan-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#clamav-formula::README.adoc">clamav-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cloudfoundry-formula::README.adoc">cloudfoundry-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cloudstack-formula::README.adoc">cloudstack-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cobbler-formula::README.adoc">cobbler-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#cockroachdb-formula::README.adoc">cockroachdb-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#composer-formula::README.adoc">composer-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#couchdb-formula::README.adoc">couchdb-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#crontab-formula::README.adoc">crontab-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dansguardian-formula::README.adoc">dansguardian-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dbeaver-formula::README.adoc">dbeaver-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ddclient-formula::README.adoc">ddclient-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ddns-client-formula::README.adoc">ddns-client-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#debootstrap-formula::README.adoc">debootstrap-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dehydrated-formula::README.adoc">dehydrated-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dirvish-formula::README.adoc">dirvish-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#djbdns-formula::README.adoc">djbdns-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dnsmasq-formula::README.adoc">dnsmasq-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dokuwiki-formula::README.adoc">dokuwiki-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#dovecot-formula::README.adoc">dovecot-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#drupal-formula::README.adoc">drupal-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ejabberd-formula::README.adoc">ejabberd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#elasticsearch-formula::README.adoc">elasticsearch-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#elasticsearch-logstash-kibana-formula::README.adoc">elasticsearch-logstash-kibana-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#elrepo-formula::README.adoc">elrepo-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#emacs-formula::README.adoc">emacs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#emby-formula::README.adoc">emby-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#epazote-formula::README.adoc">epazote-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#eramba-formula::README.adoc">eramba-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#erlang-formula::README.adoc">erlang-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#etcd-formula::README.adoc">etcd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#eucalyptus-formula::README.adoc">eucalyptus-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#filebeat-formula::README.adoc">filebeat-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#fluentbit-formula::README.adoc">fluentbit-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#flume-formula::README.adoc">flume-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#flussonic-formula::README.adoc">flussonic-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#frr-formula::README.adoc">frr-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gasmask-formula::README.adoc">gasmask-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gce-formula::README.adoc">gce-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gerrit-formula::README.adoc">gerrit-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#git-annex-formula::README.adoc">git-annex-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#git-formula::README.adoc">git-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gitlab-formula::README.adoc">gitlab-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gitolite-formula::README.adoc">gitolite-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#graphite-formula::README.adoc">graphite-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#graylog-formula::README.adoc">graylog-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#hadoop-formula::README.adoc">hadoop-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#halite-formula::README.adoc">halite-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#haveged-formula::README.adoc">haveged-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#helm-formula::README.adoc">helm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#hostapd-formula::README.adoc">hostapd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#hosts-formula::README.adoc">hosts-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#hugo-formula::README.adoc">hugo-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#immortal-formula::README.adoc">immortal-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#insomnia-formula::README.adoc">insomnia-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#iojs-formula::README.adoc">iojs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ius-formula::README.adoc">ius-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#jdbc-formula::README.adoc">jdbc-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#jenkins-formula::README.adoc">jenkins-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#jmxtrans-formula::README.adoc">jmxtrans-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#joomla-formula::README.adoc">joomla-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#josm-formula::README.adoc">josm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#kafka-formula::README.adoc">kafka-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#kerberos-formula::README.adoc">kerberos-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#keystone-formula::README.adoc">keystone-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#kibana-formula::README.adoc">kibana-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#kubernetes-formula::README.adoc">kubernetes-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#latex-formula::README.adoc">latex-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#letsencrypt-sh-formula::README.adoc">letsencrypt-sh-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#librenms-formula::README.adoc">librenms-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#lighttpd-formula::README.adoc">lighttpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#linux-dev-formula::README.adoc">linux-dev-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#lldpd-formula::README.adoc">lldpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#logstash-formula::README.adoc">logstash-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#logstash_forwarder-formula::README.adoc">logstash_forwarder-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#lua-formula::README.adoc">lua-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#lxc-formula::README.adoc">lxc-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#lxd-formula::README.adoc">lxd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mailcatcher-formula::README.adoc">mailcatcher-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mailhog-formula::README.adoc">mailhog-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mediawiki-formula::README.adoc">mediawiki-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#memcached-formula::README.adoc">memcached-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mercurial-formula::README.adoc">mercurial-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#metricbeat-formula::README.adoc">metricbeat-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#miniconda-formula::README.adoc">miniconda-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mirth-formula::README.adoc">mirth-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#molten-formula::README.adoc">molten-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#monit-formula::README.adoc">monit-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#moosefs-formula::README.adoc">moosefs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mopidy-formula::README.adoc">mopidy-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mounts-formula::README.adoc">mounts-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#msdtc-formula::README.adoc">msdtc-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#mumble-server-formula::README.adoc">mumble-server-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#munin-formula::README.adoc">munin-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nagios-formula::README.adoc">nagios-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nano-formula::README.adoc">nano-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-bgp-formula::README.adoc">napalm-bgp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-install-formula::README.adoc">napalm-install-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-interfaces-formula::README.adoc">napalm-interfaces-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-lldp-formula::README.adoc">napalm-lldp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-logging-formula::README.adoc">napalm-logging-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-ntp-formula::README.adoc">napalm-ntp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-snmp-formula::README.adoc">napalm-snmp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#napalm-users-formula::README.adoc">napalm-users-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#network-debian-formula::README.adoc">network-debian-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#newrelic-formula::README.adoc">newrelic-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nexus-formula::README.adoc">nexus-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nomad-formula::README.adoc">nomad-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nscd-formula::README.adoc">nscd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#nvm-formula::README.adoc">nvm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#opencrowbar-formula::README.adoc">opencrowbar-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#opendkim-formula::README.adoc">opendkim-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#opensds-formula::README.adoc">opensds-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openstack-standalone-formula::README.adoc">openstack-standalone-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openvas-formula::README.adoc">openvas-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openvpn-client-formula::README.adoc">openvpn-client-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openvswitch-formula::README.adoc">openvswitch-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#opsmatic-formula::README.adoc">opsmatic-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#os-hardening-formula::README.adoc">os-hardening-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#owncloud-formula::README.adoc">owncloud-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#oxidized-formula::README.adoc">oxidized-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pacemaker-corosync-formula::README.adoc">pacemaker-corosync-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#packer-formula::README.adoc">packer-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pam-formula::README.adoc">pam-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pam-ldap-formula::README.adoc">pam-ldap-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pam_access-formula::README.adoc">pam_access-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pam_mount-formula::README.adoc">pam_mount-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#patchwork-formula::README.adoc">patchwork-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#perl-formula::README.adoc">perl-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pfring-formula::README.adoc">pfring-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pimpmylog-formula::README.adoc">pimpmylog-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pip-formula::README.adoc">pip-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#piwik-formula::README.adoc">piwik-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#plex-formula::README.adoc">plex-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#plone-formula::README.adoc">plone-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#polycom-formula::README.adoc">polycom-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#postman-formula::README.adoc">postman-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pppoe-formula::README.adoc">pppoe-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pulp-formula::README.adoc">pulp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#puppet-formula::README.adoc">puppet-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pureftpd-formula::README.adoc">pureftpd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#pydio-formula::README.adoc">pydio-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#python2-formula::README.adoc">python2-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#qpid-formula::README.adoc">qpid-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#raspberrypi-formula::README.adoc">raspberrypi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rdp-formula::README.adoc">rdp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rectangle-formula::README.adoc">rectangle-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#redmine-formula::README.adoc">redmine-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#remi-formula::README.adoc">remi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#resolver-formula::README.adoc">resolver-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#reverse-grains-formula::README.adoc">reverse-grains-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#reverse-users-formula::README.adoc">reverse-users-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#riak-formula::README.adoc">riak-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rinetd-formula::README.adoc">rinetd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rlang-formula::README.adoc">rlang-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rstudio-formula::README.adoc">rstudio-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rsyncd-formula::README.adoc">rsyncd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rsyslog-formula::README.adoc">rsyslog-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ruby-formula::README.adoc">ruby-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#rundeck-formula::README.adoc">rundeck-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#runit-formula::README.adoc">runit-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salt-api-reactor-formula::README.adoc">salt-api-reactor-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salt-docs-formula::README.adoc">salt-docs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salt-virt-formula::README.adoc">salt-virt-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#samba-formula::README.adoc">samba-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sbuild-formula::README.adoc">sbuild-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#schroot-formula::README.adoc">schroot-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#screen-formula::README.adoc">screen-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sensu-formula::README.adoc">sensu-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#shorewall-formula::README.adoc">shorewall-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#slurm-formula::README.adoc">slurm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#smokeping-formula::README.adoc">smokeping-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#snmp-formula::README.adoc">snmp-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#soda-delfin-formula::README.adoc">soda-delfin-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sogo-formula::README.adoc">sogo-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#solr-formula::README.adoc">solr-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#spark-formula::README.adoc">spark-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sphinx-doc-formula::README.adoc">sphinx-doc-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#splunkforwarder-formula::README.adoc">splunkforwarder-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#squid-formula::README.adoc">squid-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ssh-formula::README.adoc">ssh-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sugarcrm-formula::README.adoc">sugarcrm-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sumo-logic-formula::README.adoc">sumo-logic-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sun-java-formula::README.adoc">sun-java-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#supervisor-formula::README.adoc">supervisor-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#svn-formula::README.adoc">svn-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#swapfile-formula::README.adoc">swapfile-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#thrift-formula::README.adoc">thrift-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#tinc-formula::README.adoc">tinc-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#tinyproxy-formula::README.adoc">tinyproxy-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#tmux-formula::README.adoc">tmux-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#twemproxy-formula::README.adoc">twemproxy-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ulog-formula::README.adoc">ulog-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#unitrends-agent-formula::README.adoc">unitrends-agent-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#uptime-formula::README.adoc">uptime-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#uwsgi-formula::README.adoc">uwsgi-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vagrant-formula::README.adoc">vagrant-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#virtualenv-formula::README.adoc">virtualenv-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vmbuilder-formula::README.adoc">vmbuilder-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vmware-tools-formula::README.adoc">vmware-tools-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vscode-formula::README.adoc">vscode-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#wireguard-formula::README.adoc">wireguard-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#wordpress-formula::README.adoc">wordpress-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#wso2-formula::README.adoc">wso2-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#xinetd-formula::README.adoc">xinetd-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#yed-formula::README.adoc">yed-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#zendserver-formula::README.adoc">zendserver-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#zfs-formula::README.adoc">zfs-formula</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#zookeeper-formula::README.adoc">zookeeper-formula</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Other repositories</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#.github::README.adoc">.github</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ec2-autoscale-reactor::README.adoc">ec2-autoscale-reactor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ec2-conf::README.adoc">ec2-conf</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gce-conf::README.adoc">gce-conf</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salt-cloud-reactor::README.adoc">salt-cloud-reactor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salter::README.adoc">salter</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#saltify-conf::README.adoc">saltify-conf</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ssf-docker-images::README.adoc">ssf-docker-images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vagrant-dev-vm-reactor::README.adoc">vagrant-dev-vm-reactor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#vmware-conf::README.adoc">vmware-conf</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#workinggroup::README.adoc">workinggroup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">GitLab repositories</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">CI tools</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#salt-image-builder::README.adoc">salt-image-builder</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SaltStack Formulas</span>
+    <span class="version">1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../apache-formula/1.1.3/README.html">apache-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apache-formula/1.1.3/README.html">1.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-cacher-formula/0.7.3/README.html">apt-cacher-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-cacher-formula/0.7.3/README.html">0.7.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../apt-formula/0.9.1/README.html">apt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../apt-formula/0.9.1/README.html">0.9.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../arvados-formula/1.1.4/README.html">arvados-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../arvados-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../bind-formula/0.19.2/README.html">bind-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../bind-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cert-formula/1.2.0/README.html">cert-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cert-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../chrony-formula/1.2.5/README.html">chrony-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../chrony-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../collectd-formula/1.1.4/README.html">collectd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../collectd-formula/1.1.4/README.html">1.1.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../consul-formula/1.0.0/README.html">consul-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../consul-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cron-formula/0.3.2/README.html">cron-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../cron-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../deepsea-formula/1.1.0/README.html">deepsea-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../deepsea-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../devstack-formula/1.0.2/README.html">devstack-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../devstack-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../dhcpd-formula/0.9.0/README.html">dhcpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../dhcpd-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../django-formula/0.5.0/README.html">django-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../django-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../docker-formula/2.0.3/README.html">docker-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../docker-formula/2.0.3/README.html">2.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eclipse-formula/1.1.1/README.html">eclipse-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../eclipse-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../epel-formula/1.15.5/README.html">epel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../epel-formula/1.15.5/README.html">1.15.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../exim-formula/0.7.1/README.html">exim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../exim-formula/0.7.1/README.html">0.7.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../fail2ban-formula/1.1.2/README.html">fail2ban-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../fail2ban-formula/1.1.2/README.html">1.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../firewalld-formula/1.2.1/README.html">firewalld-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../firewalld-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../golang-formula/0.7.5/README.html">golang-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../golang-formula/0.7.5/README.html">0.7.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../grafana-formula/3.1.2/README.html">grafana-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../grafana-formula/3.1.2/README.html">3.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../haproxy-formula/0.17.1/README.html">haproxy-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../haproxy-formula/0.17.1/README.html">0.17.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../hostsfile-formula/0.8.1/README.html">hostsfile-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../hostsfile-formula/0.8.1/README.html">0.8.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../icinga2-formula/0.9.0/README.html">icinga2-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../icinga2-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../influxdb-formula/0.3.3/README.html">influxdb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../influxdb-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iptables-formula/0.17.4/README.html">iptables-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iptables-formula/0.17.4/README.html">0.17.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../iscsi-formula/1.2.0/README.html">iscsi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../iscsi-formula/1.2.0/README.html">1.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../java-formula/2.0.0/README.html">java-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../java-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-appcode-formula/1.0.3/README.html">jetbrains-appcode-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-appcode-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-clion-formula/1.2.1/README.html">jetbrains-clion-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-clion-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-datagrip-formula/1.2.1/README.html">jetbrains-datagrip-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-datagrip-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-goland-formula/1.2.1/README.html">jetbrains-goland-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-goland-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-intellij-formula/1.2.1/README.html">jetbrains-intellij-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-intellij-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-phpstorm-formula/1.2.1/README.html">jetbrains-phpstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-phpstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-pycharm-formula/1.2.1/README.html">jetbrains-pycharm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-pycharm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-resharper-formula/1.2.2/README.html">jetbrains-resharper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-resharper-formula/1.2.2/README.html">1.2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rider-formula/1.2.1/README.html">jetbrains-rider-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rider-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-rubymine-formula/1.1.1/README.html">jetbrains-rubymine-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-rubymine-formula/1.1.1/README.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../jetbrains-webstorm-formula/1.2.1/README.html">jetbrains-webstorm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../jetbrains-webstorm-formula/1.2.1/README.html">1.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../keepalived-formula/0.6.0/README.html">keepalived-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../keepalived-formula/0.6.0/README.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../letsencrypt-formula/2.1.0/README.html">letsencrypt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../letsencrypt-formula/2.1.0/README.html">2.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../libvirt-formula/3.9.0/README.html">libvirt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../libvirt-formula/3.9.0/README.html">3.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../locale-formula/0.3.5/README.html">locale-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../locale-formula/0.3.5/README.html">0.3.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../logrotate-formula/0.9.0/README.html">logrotate-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../logrotate-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lvm-formula/0.3.3/README.html">lvm-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lvm-formula/0.3.3/README.html">0.3.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../lynis-formula/0.4.2/README.html">lynis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../lynis-formula/0.4.2/README.html">0.4.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../maven-formula/1.0.2/README.html">maven-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../maven-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mongodb-formula/1.0.2/README.html">mongodb-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mongodb-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../mysql-formula/0.55.1/README.html">mysql-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../mysql-formula/0.55.1/README.html">0.55.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nfs-formula/0.12.0/README.html">nfs-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nfs-formula/0.12.0/README.html">0.12.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nginx-formula/2.7.0/README.html">nginx-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nginx-formula/2.7.0/README.html">2.7.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nifi-formula/0.8.0/README.html">nifi-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nifi-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../node-formula/1.0.1/README.html">node-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../node-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ntp-formula/0.19.2/README.html">ntp-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ntp-formula/0.19.2/README.html">0.19.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../nut-formula/1.1.0/README.html">nut-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../nut-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openldap-formula/0.8.0/README.html">openldap-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openldap-formula/0.8.0/README.html">0.8.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openntpd-formula/0.2.4/README.html">openntpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openntpd-formula/0.2.4/README.html">0.2.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openssh-formula/3.0.1/README.html">openssh-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openssh-formula/3.0.1/README.html">3.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../openvpn-formula/1.15.1/README.html">openvpn-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../openvpn-formula/1.15.1/README.html">1.15.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../packages-formula/0.9.0/README.html">packages-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../packages-formula/0.9.0/README.html">0.9.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../php-formula/1.4.0/README.html">php-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../php-formula/1.4.0/README.html">1.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../postfix-formula/2.0.0/README.html">postfix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../postfix-formula/2.0.0/README.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../postgres-formula/0.41.7/README.html">postgres-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../postgres-formula/0.41.7/README.html">0.41.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../powerdns-formula/0.3.4/README.html">powerdns-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../powerdns-formula/0.3.4/README.html">0.3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../proftpd-formula/0.5.0/README.html">proftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../proftpd-formula/0.5.0/README.html">0.5.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../prometheus-formula/5.4.0/README.html">prometheus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../prometheus-formula/5.4.0/README.html">5.4.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rabbitmq-formula/1.0.0/README.html">rabbitmq-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-formula/1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../redis-formula/0.27.2/README.html">redis-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../redis-formula/0.27.2/README.html">0.27.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rkhunter-formula/0.4.3/README.html">rkhunter-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rkhunter-formula/0.4.3/README.html">0.4.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rng-tools-formula/0.2.0/README.html">rng-tools-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rng-tools-formula/0.2.0/README.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../rspamd-formula/0.1.3/README.html">rspamd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../rspamd-formula/0.1.3/README.html">0.1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../salt-formula/1.8.4/README.html">salt-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../salt-formula/1.8.4/README.html">1.8.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">SaltStack Formulas</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest is-current">
+          <a href="index.html">1.1.0</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../1.0.0/README.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqldeveloper-formula/1.0.1/README.html">sqldeveloper-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqldeveloper-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sqlplus-formula/1.0.1/README.html">sqlplus-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sqlplus-formula/1.0.1/README.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../strongswan-formula/0.3.0/README.html">strongswan-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../strongswan-formula/0.3.0/README.html">0.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../stunnel-formula/0.2.3/README.html">stunnel-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../stunnel-formula/0.2.3/README.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sudoers-formula/0.23.4/README.html">sudoers-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sudoers-formula/0.23.4/README.html">0.23.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../suricata-formula/1.0.2/README.html">suricata-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../suricata-formula/1.0.2/README.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysctl-formula/0.6.3/README.html">sysctl-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysctl-formula/0.6.3/README.html">0.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../syslog-ng-formula/0.5.1/README.html">syslog-ng-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../syslog-ng-formula/0.5.1/README.html">0.5.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../sysstat-formula/0.4.1/README.html">sysstat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../sysstat-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../systemd-formula/0.19.0/README.html">systemd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../systemd-formula/0.19.0/README.html">0.19.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../telegraf-formula/1.0.3/README.html">telegraf-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../telegraf-formula/1.0.3/README.html">1.0.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../template-formula/1.3.17/README.html">template-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../template-formula/1.3.17/README.html">1.3.17</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.16/README.html">1.3.16</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.15/README.html">1.3.15</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.14/README.html">1.3.14</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.13/README.html">1.3.13</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.12/README.html">1.3.12</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.11/README.html">1.3.11</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.10/README.html">1.3.10</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.9/README.html">1.3.9</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.8/README.html">1.3.8</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.7/README.html">1.3.7</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.6/README.html">1.3.6</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.5/README.html">1.3.5</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.4/README.html">1.3.4</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.3/README.html">1.3.3</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.2/README.html">1.3.2</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.1/README.html">1.3.1</a>
+        </li>
+      </ul>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../template-formula/1.3.0/README.html">1.3.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../timezone-formula/0.4.4/README.html">timezone-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../timezone-formula/0.4.4/README.html">0.4.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tomcat-formula/0.19.5/README.html">tomcat-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../tomcat-formula/0.19.5/README.html">0.19.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ufw-formula/0.5.7/README.html">ufw-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../ufw-formula/0.5.7/README.html">0.5.7</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../users-formula/1.46.0/README.html">users-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../users-formula/1.46.0/README.html">1.46.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../varnish-formula/0.4.1/README.html">varnish-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../varnish-formula/0.4.1/README.html">0.4.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vault-formula/1.2.5/README.html">vault-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vault-formula/1.2.5/README.html">1.2.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vim-formula/0.15.4/README.html">vim-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vim-formula/0.15.4/README.html">0.15.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../vsftpd-formula/0.3.2/README.html">vsftpd-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../vsftpd-formula/0.3.2/README.html">0.3.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../zabbix-formula/1.1.0/README.html">zabbix-formula</a>
+      <ul class="versions is-latest">
+        <li class="version is-latest">
+          <a href="../../zabbix-formula/1.1.0/README.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">SaltStack Formulas</a></li>
+    <li>General formula docs</li>
+    <li><a href="map.jinja.html"><code>map.jinja</code>: gather formula configuration values</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="map.jinja.html">1.1.0</a>
+    <a class="version is-missing" href="../1.0.3/README.html">1.0.3</a>
+    <a class="version is-missing" href="../1.0.2/README.html">1.0.2</a>
+    <a class="version is-missing" href="../1.0.1/README.html">1.0.1</a>
+    <a class="version is-missing" href="../1.0.0/README.html">1.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/myii/saltstack-formulas.netlify.app/blob/v1.1.0/docs/modules/ROOT/pages/map.jinja.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page"><code>map.jinja</code>: gather formula configuration values</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Newest <code>map.jinja</code> only available in a few formulas so far</div>
+<div class="paragraph">
+<p>This document is specific to the newest <code>map.jinja</code> incarnation,
+also known as the <code>v5 map.jinja</code>.</p>
+</div>
+<div class="paragraph">
+<p>At the time of writing, this is only available in a handful of formulas,
+as well as the <code>template-formula</code> itself.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The
+<a href="https://docs.saltproject.io/en/latest/topics/development/conventions/formulas.html#writing-formulas" target="_blank" rel="noopener">documentation</a>
+explains the use of a <code>map.jinja</code> to gather parameters values for a
+formula.</p>
+</div>
+<div class="paragraph">
+<p>As <a href="https://docs.saltproject.io/en/latest/topics/pillar/" target="_blank" rel="noopener">pillars</a> are
+rendered on the Salt master for every minion, this increases the load on
+the master as the pillar values and the number of minions grows.</p>
+</div>
+<div class="paragraph">
+<p>As a good practice, you should:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>store non-secret data in YAML files distributed by the
+<a href="https://docs.saltproject.io/en/latest/ref/file_server" target="_blank" rel="noopener">fileserver</a></p>
+</li>
+<li>
+<p>store secret data in:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.saltproject.io/en/latest/topics/pillar/" target="_blank" rel="noopener">pillars</a> (and
+look for the use of something like
+<a href="https://docs.saltproject.io/en/latest/ref/pillar/all/salt.pillar.vault.html" target="_blank" rel="noopener">pillar.vault</a>)</p>
+</li>
+<li>
+<p><a href="https://docs.saltproject.io/en/latest/topics/sdb/index.html" target="_blank" rel="noopener">SDB</a> (and
+look for the use of something like
+<a href="https://docs.saltproject.io/en/latest/ref/sdb/all/salt.sdb.vault.html" target="_blank" rel="noopener">sdb.vault</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Current best practice is to let <code>map.jinja</code> handle parameters from all
+sources, to minimise the use of pillars, grains or configuration from
+<code>sls</code> files and templates directly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Table of Contents</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_for_formula_users"><a class="anchor" href="#_for_formula_users"></a>1. For formula users</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_quick_start_configure_per_role_and_per_dns_domain_name_values"><a class="anchor" href="#_quick_start_configure_per_role_and_per_dns_domain_name_values"></a>1.1. Quick start: configure per role and per DNS domain name values</h3>
+<div class="paragraph">
+<p>We will see a quick setup to configure the <code>TEMPLATE</code> formula for
+different DNS domain names and several roles.</p>
+</div>
+<div class="paragraph">
+<p>For this example, I&#8217;ll define 2 kinds of
+<a href="https://docs.saltproject.io/en/latest/ref/file_server" target="_blank" rel="noopener">fileserver</a>
+sources:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>formulas git repositories with hard-coded version reference to avoid
+breaking my setup randomly at upstream update. they are the last sources
+where files are looked up</p>
+</li>
+<li>
+<p>parameters of the formulas in the file backend
+<a href="https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html" target="_blank" rel="noopener">roots</a></p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_configure_the_fileserver_backends"><a class="anchor" href="#_configure_the_fileserver_backends"></a>1.1.1. Configure the fileserver backends</h4>
+<div class="paragraph">
+<p>I configure the
+<a href="https://docs.saltproject.io/en/latest/ref/file_server" target="_blank" rel="noopener">fileserver</a>
+backends to serve:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>files from
+<a href="https://docs.saltproject.io/en/latest/ref/file_server/all/salt.fileserver.roots.html" target="_blank" rel="noopener">roots</a>
+first</p>
+</li>
+<li>
+<p><a href="https://docs.saltproject.io/en/latest/topics/tutorials/gitfs.html" target="_blank" rel="noopener">gitfs</a>
+repositories last</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Create the file <code>/etc/salt/master.d/fileserver.conf</code> and restart the
+<code>master</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+##
+## file server
+##
+fileserver_backend:
+  # parameters values and override
+  - roots
+  # formulas
+  - gitfs
+
+# The files in this directory will take precedence over git repositories
+file_roots:
+  base:
+    - /srv/salt
+
+# List of formulas I'm using
+gitfs_remotes:
+  - https://github.com/saltstack-formulas/template-formula.git:
+    - base: v4.1.1
+  - https://github.com/saltstack-formulas/openssh-formula.git:
+    - base: v2.0.1
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_per_dns_configuration_for_template_formula"><a class="anchor" href="#_create_per_dns_configuration_for_template_formula"></a>1.1.2. Create per DNS configuration for <code>TEMPLATE</code> formula</h4>
+<div class="paragraph">
+<p>Now, we can provides the per DNS domain name configuration files for the
+<code>TEMPLATE</code> formulas under <code>/srv/salt/TEMPLATE/parameters/</code>.</p>
+</div>
+<div class="paragraph">
+<p>We create the directory for <code>dns:domain</code> grain and we add a symlink for
+the <code>domain</code> grain which is extracted from the minion <code>id</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mkdir -p /srv/salt/TEMPLATE/parameters/dns:domain/
+ln -s dns:domain /srv/salt/TEMPLATE/parameters/domain</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We create a configuration for the DNS domain <code>example.net</code> in
+<code>/srv/salt/TEMPLATE/parameters/dns:domain/example.net.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  config: /etc/template-formula-example-net.conf
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We create another configuration for the DNS domain <code>example.com</code> in the
+Jinja YAML template
+<code>/srv/salt/TEMPLATE/parameters/dns:domain/example.com.yaml.jinja</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  config: /etc/template-formula-{{ grains['os_family'] }}.conf
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_per_role_configuration_for_template_formula"><a class="anchor" href="#_create_per_role_configuration_for_template_formula"></a>1.1.3. Create per role configuration for <code>TEMPLATE</code> formula</h4>
+<div class="paragraph">
+<p>Now, we can provides the per role configuration files for the <code>TEMPLATE</code>
+formulas under <code>/srv/salt/TEMPLATE/parameters/</code>.</p>
+</div>
+<div class="paragraph">
+<p>We create the directory for roles:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">mkdir -p /srv/salt/TEMPLATE/parameters/roles</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We will define 2 roles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TEMPLATE/server</code></p>
+</li>
+<li>
+<p><code>TEMPLATE/client</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We create a configuration for the role <code>TEMPLATE/server</code> in
+<code>/srv/salt/TEMPLATE/parameters/roles/TEMPLATE/server.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  config: /etc/template-formula-server.conf
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We create another configuration for the role <code>TEMPLATE/client</code> in
+<code>/srv/salt/TEMPLATE/parameters/roles/TEMPLATE/client.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  config: /etc/template-formula-client.conf
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enable_roles_and_the_dnsdomain_and_domain_grains_for_map_jinja"><a class="anchor" href="#_enable_roles_and_the_dnsdomain_and_domain_grains_for_map_jinja"></a>1.1.4. Enable roles and the <code>dns:domain</code> and <code>domain</code> grains for <code>map.jinja</code></h4>
+<div class="paragraph">
+<p>We need to redefine the sources for <code>map.jinja</code> to load values from our
+new configuration files, we provide a global configuration for all our
+minions.</p>
+</div>
+<div class="paragraph">
+<p>We create the global parameters file
+<code>/srv/salt/parameters/map_jinja.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  sources:
+    # default values
+    - "Y:G@osarch"
+    - "Y:G@os_family"
+    - "Y:G@os"
+    - "Y:G@osfinger"
+    - "C@{{ tplroot ~ ':lookup' }}"
+    - "C@{{ tplroot }}"
+
+    # Roles activate/deactivate things
+    # then thing are configured depending on environment
+    # So roles comes before `dns:domain`, `domain` and `id`
+    - "Y:C@roles"
+
+    # DNS domain configured (DHCP or resolv.conf)
+    - "Y:G@dns:domain"
+
+    # Based on minion ID
+    - "Y:G@domain"
+
+    # default values
+    - "Y:G@id"
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The syntax is explained later at
+<a href="#_sources_of_configuration_values">Sources of configuration values</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bind_roles_to_minions"><a class="anchor" href="#_bind_roles_to_minions"></a>1.1.5. Bind roles to minions</h4>
+<div class="paragraph">
+<p>We associate roles
+<a href="https://docs.saltproject.io/en/latest/topics/grains/" target="_blank" rel="noopener">grains</a> to minion
+using
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.append" target="_blank" rel="noopener">grains.append</a>.</p>
+</div>
+<div class="paragraph">
+<p>For the servers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">salt 'server-*' grains.append roles TEMPLATE/server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the clients:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">salt 'client-*' grains.append roles TEMPLATE/client</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note</p>
+</div>
+<div class="paragraph">
+<p>Since we used <code>Y:C@roles</code>, <code>map.jinja</code> will do a
+<code>salt['config.get']('roles')</code> to retrieve the roles so you could use any
+other method to bind roles to minions
+(<a href="https://docs.saltproject.io/en/latest/topics/pillar/" target="_blank" rel="noopener">pillars</a> or
+<a href="https://docs.saltproject.io/en/latest/topics/sdb/index.html" target="_blank" rel="noopener">SDB</a>) but
+<a href="https://docs.saltproject.io/en/latest/topics/grains/" target="_blank" rel="noopener">grains</a> seems to be
+the preferred method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_note_for_microsoft_windows_systems"><a class="anchor" href="#_note_for_microsoft_windows_systems"></a>1.1.6. Note for Microsoft Windows systems</h4>
+<div class="paragraph">
+<p>If you have a minion running under windows, you can&#8217;t use colon <code>:</code> as a
+delimiter for grain path query (see
+<a href="https://github.com/saltstack/salt/issues/58726" target="_blank" rel="noopener">bug 58726</a>) in which case
+you should use an alternate delimiter:</p>
+</div>
+<div class="paragraph">
+<p>Modify <code>/srv/salt/parameters/map_jinja.yaml</code> to change the query for
+<code>dns:domain</code> to define the
+<a href="https://docs.saltproject.io/en/latest/topics/targeting/compound.html#alternate-delimiters" target="_blank" rel="noopener">alternate
+delimiter</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+values:
+  sources:
+    # default values
+    - "Y:G@osarch"
+    - "Y:G@os_family"
+    - "Y:G@os"
+    - "Y:G@osfinger"
+    - "C@{{ tplroot ~ ':lookup' }}"
+    - "C@{{ tplroot }}"
+
+    # Roles activate/deactivate things
+    # then thing are configured depending on environment
+    # So roles comes before `dns:domain`, `domain` and `id`
+    - "Y:C@roles"
+
+    # DNS domain configured (DHCP or resolv.conf)
+    - "Y:G:!@dns!domain"
+
+    # Based on minion ID
+    - "Y:G@domain"
+
+    # default values
+    - "Y:G@id"
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then, rename the directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">mv /srv/salt/TEMPLATE/parameters/dns:domain/  '/srv/salt/TEMPLATE/parameters/dns!domain/'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_format_of_configuration_yaml_files"><a class="anchor" href="#_format_of_configuration_yaml_files"></a>1.2. Format of configuration YAML files</h3>
+<div class="paragraph">
+<p>When you write a new YAML file, note that it must conform to the
+following layout:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a mandatory <code>values</code> key to store the configuration values</p>
+</li>
+<li>
+<p>two optional keys to configure the use of
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge" target="_blank" rel="noopener">salt.slsutil.merge</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>an optional <code>strategy</code> key to configure the merging strategy, for
+example <code>strategy: 'recurse'</code>, the default is <code>smart</code></p>
+</li>
+<li>
+<p>an optional <code>merge_lists</code> key to configure if lists should be merged
+or overridden for the <code>recurse</code> and <code>overwrite</code> strategy, for example
+<code>merge_lists: 'true'</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is a valid example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+strategy: 'recurse'
+merge_lists: 'false'
+values:
+  pkg:
+    name: 'some-package'
+  config: '/path/to/a/configuration/file'
+...</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_jinja2_yaml_template"><a class="anchor" href="#_using_jinja2_yaml_template"></a>1.2.1. Using Jinja2 YAML template</h4>
+<div class="paragraph">
+<p>You can provide a Jinja2 YAML template file with a name suffixed with
+<code>.yaml.jinja</code>, it must produce a YAML file conform to the
+<a href="#_format_of_configuration_yaml_files">Format of configuration YAML
+files</a>, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-jinja hljs" data-lang="jinja">---
+strategy: 'overwrite'
+merge_lists: 'true'
+values:
+{%- if grains["os"] == "Debian" %}
+  output_dir: /tmp/{{ grains["id"] }}
+{%- endif %}
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sources_of_configuration_values"><a class="anchor" href="#_sources_of_configuration_values"></a>1.3. Sources of configuration values</h3>
+<div class="paragraph">
+<p>The <code>map.jinja</code> file aggregates configuration values from several
+sources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>YAML files stored in the
+<a href="https://docs.saltproject.io/en/latest/ref/file_server" target="_blank" rel="noopener">fileserver</a></p>
+</li>
+<li>
+<p><a href="https://docs.saltproject.io/en/latest/topics/pillar/" target="_blank" rel="noopener">pillars</a></p>
+</li>
+<li>
+<p><a href="https://docs.saltproject.io/en/latest/topics/grains/" target="_blank" rel="noopener">grains</a></p>
+</li>
+<li>
+<p>configuration gathered with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the values loaded from YAML files, <code>map.jinja</code> will automatically
+try to load a Jinja2 template with the same name as the YAML file with
+the addition of the <code>.jinja</code> extension, for example
+<code>foo/bar/quux.yaml.jinja</code>.</p>
+</div>
+<div class="paragraph">
+<p>After loading values from all sources, it will try to include the
+<code>salt://parameters/post-map.jinja</code> Jinja file if it exists which can
+post-process the <code>mapdata</code> variable.</p>
+</div>
+<div class="sect3">
+<h4 id="_configuring_map_jinja_sources"><a class="anchor" href="#_configuring_map_jinja_sources"></a>1.3.1. Configuring <code>map.jinja</code> sources</h4>
+<div class="paragraph">
+<p>The <code>map.jinja</code> file uses several sources where to lookup parameter
+values. The list of sources can be configured in two places:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>globally</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>with a plain YAML file <code>salt://parameters/map_jinja.yaml</code></p>
+</li>
+<li>
+<p>with a Jinja2 YAML template file
+<code>salt://parameters/map_jinja.yaml.jinja</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>per formula</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>with a plain YAML file
+<code>salt://{{ tplroot }}/parameters/map_jinja.yaml</code></p>
+</li>
+<li>
+<p>with a Jinja2 YAML template file
+<code>salt://{{ tplroot }}/parameters/map_jinja.yaml.jinja</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Note</p>
+</div>
+<div class="paragraph">
+<p>The <code>map.jinja</code> configuration files must conform to the
+<a href="#_format_of_configuration_yaml_files">format of configuration YAML
+files</a>.</p>
+</div>
+<div class="paragraph">
+<p>Each source definition has the form
+<code>[&lt;TYPE&gt;[:&lt;OPTION&gt;[:&lt;DELIMITER&gt;]]@]&lt;KEY&gt;</code> where <code>&lt;TYPE&gt;</code> can be one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Y</code> to load values from YAML files from the
+<a href="https://docs.saltproject.io/en/latest/ref/file_server" target="_blank" rel="noopener">fileserver</a>, this
+is the default when no type is defined</p>
+</li>
+<li>
+<p><code>C</code> to lookup values with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^]</p>
+</li>
+<li>
+<p><code>G</code> to lookup values with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get">salt['grains.get'</a>^]</p>
+</li>
+<li>
+<p><code>I</code> to lookup values with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get">salt['pillar.get'</a>^]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The YAML type option can define the query method to lookup the key value
+to build the file name:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>C</code> to query with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^],
+this is the default when no query method is defined</p>
+</li>
+<li>
+<p><code>G</code> to query with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get">salt['grains.get'</a>^]</p>
+</li>
+<li>
+<p><code>I</code> to query with
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get">salt['pillar.get'</a>^]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>C</code>, <code>G</code> or <code>I</code> types can define the <code>SUB</code> option to store values in
+the sub key <code>mapdata.&lt;KEY&gt;</code> instead of directly in <code>mapdata</code>.</p>
+</div>
+<div class="paragraph">
+<p>All types can define the <code>&lt;DELIMITER&gt;</code> option to use an
+<a href="https://docs.saltproject.io/en/latest/topics/targeting/compound.html#alternate-delimiters" target="_blank" rel="noopener">alternate
+delimiter</a> of the <code>&lt;KEY&gt;</code>, for example: on windows system you can&#8217;t use
+colon <code>:</code> for YAML file path name and you should use something else like
+exclamation mark <code>!</code>.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the <code>&lt;KEY&gt;</code> describes what to lookup to either build the YAML
+filename or gather values using one of the query methods.</p>
+</div>
+<div class="paragraph">
+<p>Note</p>
+</div>
+<div class="paragraph">
+<p>For the YAML type:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>if the <code>&lt;KEY&gt;</code> can&#8217;t be looked up, then it&#8217;s used a literal string
+path to a YAML file, for example: <code>any/path/can/be/used/here.yaml</code> will
+result in the loading of
+<code>salt://{{ tplroot }}/parameters/any/path/can/be/used/here.yaml</code> if it
+exists</p>
+</li>
+<li>
+<p><code>map.jinja</code> will automatically try to load a Jinja2 template, after
+the corresponding YAML file, with the same name as the YAML file
+extended with the <code>.jinja</code> extension, for example
+<code>any/path/can/be/used/here.yaml.jinja</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The built-in <code>map.jinja</code> sources are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- "Y:G@osarch"
+- "Y:G@os_family"
+- "Y:G@os"
+- "Y:G@osfinger"
+- "C@{{ tplroot ~ ':lookup' }}"
+- "C@{{ tplroot }}"
+- "Y:G@id"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is strictly equivalent to the following <code>map_jinja.yaml.jinja</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">values:
+  sources:
+    - "parameters/osarch/{{ salt['grains.get']('osarch') }}.yaml"
+    - "parameters/osarch/{{ salt['grains.get']('osarch') }}.yaml.jinja"
+    - "parameters/os_family/{{ salt['grains.get']('os_family') }}.yaml"
+    - "parameters/os_family/{{ salt['grains.get']('os_family') }}.yaml.jinja"
+    - "parameters/os/{{ salt['grains.get']('os') }}.yaml"
+    - "parameters/os/{{ salt['grains.get']('os') }}.yaml.jinja"
+    - "parameters/osfinger/{{ salt['grains.get']('osfinger') }}.yaml"
+    - "parameters/osfinger/{{ salt['grains.get']('osfinger') }}.yaml.jinja"
+    - "C@{{ tplroot ~ ':lookup' }}"
+    - "C@{{ tplroot }}"
+    - "parameters/id/{{ salt['grains.get']('id') }}.yaml"
+    - "parameters/id/{{ salt['grains.get']('id') }}.yaml.jinja"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_loading_values_from_the_configuration_sources"><a class="anchor" href="#_loading_values_from_the_configuration_sources"></a>1.3.2. Loading values from the configuration sources</h4>
+<div class="paragraph">
+<p>For each configuration source defined, <code>map.jinja</code> will:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>load values depending on the source type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>for YAML file sources</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if the <code>&lt;KEY&gt;</code> can be looked up:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>load values from the YAML file named
+<code>salt://{{ tplroot }}/paramaters/&lt;KEY&gt;/{{ salt['&lt;QUERY_METHOD&gt;']('&lt;KEY&gt;') }}.yaml</code>
+if it exists</p>
+</li>
+<li>
+<p>load values from the Jinja2 YAML template file named
+<code>salt://{{ tplroot }}/paramaters/&lt;KEY&gt;/{{ salt['&lt;QUERY_METHOD&gt;']('&lt;KEY&gt;') }}.yaml.jinja</code>
+if it exists</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>otherwise:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>load the YAML file named
+<code>salt://{{ tplroot }}/parameters/&lt;KEY&gt;.yaml</code> if it exists</p>
+</li>
+<li>
+<p>load the Jinja2 YAML template file named
+<code>salt://{{ tplroot }}/parameters/&lt;KEY&gt;.yaml.jinja</code> if it exists</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>for <code>C</code>, <code>G</code> or <code>I</code> source type, lookup the value of
+<code>salt['&lt;QUERY_METHOD&gt;']('&lt;KEY&gt;')</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>merge the loaded values with the previous ones using
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.slsutil.html#salt.modules.slsutil.merge" target="_blank" rel="noopener">salt.slsutil.merge</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There will be no error if a YAML or Jinja2 file does not exists, they
+are all optional.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_values_from_saltconfig_get"><a class="anchor" href="#_configuration_values_from_saltconfig_get"></a>1.3.3. Configuration values from <code>salt['config.get']</code></h4>
+<div class="paragraph">
+<p>For sources with of type <code>C</code> declared in <code>map_jinja:sources</code>, you can
+configure the <code>merge</code> option of
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^]
+by defining per formula <code>strategy</code> configuration key (retrieved with
+<code>salt['config.get'](tplroot ~ ':strategy')</code> with one of the following
+values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>recurse</code> merge recursively dictionaries. Non dictionary values
+replace already defined values</p>
+</li>
+<li>
+<p><code>overwrite</code> new value completely replace old ones</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By default, no merging is done, the first value found is returned.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_global_view_of_the_order_of_preferences"><a class="anchor" href="#_global_view_of_the_order_of_preferences"></a>1.3.4. Global view of the order of preferences</h4>
+<div class="paragraph">
+<p>To summarise, here is a complete example of the load order of formula
+configuration values for an <code>AMD64</code> <code>Ubuntu 18.04</code> minion named
+<code>minion1.example.net</code> for the <code>libvirt</code> formula:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>parameters/defaults.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/defaults.yaml.jinja</code></p>
+</li>
+<li>
+<p><code>parameters/osarch/amd64.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/osarch/amd64.yaml.jinja</code></p>
+</li>
+<li>
+<p><code>parameters/os_family/Debian.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/os_family/Debian.yaml.jinja</code></p>
+</li>
+<li>
+<p><code>parameters/os/Ubuntu.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/os/Ubuntu.yaml.jinja</code></p>
+</li>
+<li>
+<p><code>parameters/osfinger/Ubuntu-18.04.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/osfinger/Ubuntu-18.04.yaml.jinja</code></p>
+</li>
+<li>
+<p><code>salt['config.get']('libvirt:lookup')</code></p>
+</li>
+<li>
+<p><code>salt['config.get']('libvirt')</code></p>
+</li>
+<li>
+<p><code>parameters/id/minion1.example.net.yaml</code></p>
+</li>
+<li>
+<p><code>parameters/id/minion1.example.net.yaml.jinja</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Remember that the order is important, for example, the value of
+<code>key1:subkey1</code> loaded from <code>parameters/os_family/Debian.yaml</code> is
+overridden by a value loaded from
+<code>parameters/id/minion1.example.net.yaml</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_for_formula_authors_and_contributors"><a class="anchor" href="#_for_formula_authors_and_contributors"></a>2. For formula authors and contributors</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dependencies"><a class="anchor" href="#_dependencies"></a>2.1. Dependencies</h3>
+<div class="paragraph">
+<p><code>map.jinja</code> requires:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>salt minion 2018.3.3 minimum to use the
+<a href="https://docs.saltproject.io/en/latest/topics/jinja/index.html#traverse" target="_blank" rel="noopener">traverse</a>
+jinja filter</p>
+</li>
+<li>
+<p>to be located at the root of the formula named directory (e.g.
+<code>libvirt-formula/libvirt/map.jinja</code>)</p>
+</li>
+<li>
+<p>the <code>libsaltcli.jinja</code> library, stored in the same directory, to
+disable the <code>merge</code> option of
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^]
+over <a href="https://docs.saltproject.io/en/latest/topics/ssh/" target="_blank" rel="noopener">salt-ssh</a></p>
+</li>
+<li>
+<p>the <code>libmapstack.jinja</code> library to load the configuration values</p>
+</li>
+<li>
+<p>the <code>libmatchers.jinja</code> library used by <code>libmapstack.jinja</code> to parse
+compound like matchers</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_formula_configuration_values_in_sls"><a class="anchor" href="#_use_formula_configuration_values_in_sls"></a>2.2. Use formula configuration values in <code>sls</code></h3>
+<div class="paragraph">
+<p>The <code>map.jinja</code> exports a unique <code>mapdata</code> variable which could be
+renamed during import.</p>
+</div>
+<div class="paragraph">
+<p>Here is the best way to use it in an <code>sls</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
+
+test-does-nothing-but-display-TEMPLATE-as-json:
+  test.nop:
+    - name: {{ TEMPLATE | json }}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_formula_configuration_values_in_templates"><a class="anchor" href="#_use_formula_configuration_values_in_templates"></a>2.3. Use formula configuration values in templates</h3>
+<div class="paragraph">
+<p>When you need to process salt templates, you should avoid calling
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.config.html#salt.modules.config.get">salt['config.get'</a>^]
+(or
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.pillar.html#salt.modules.pillar.get">salt['pillar.get'</a>^]
+and
+<a href="https://docs.saltproject.io/en/latest/ref/modules/all/salt.modules.grains.html#salt.modules.grains.get">salt['grains.get'</a>^])
+directly from the template. All the needed values should be available
+within the <code>mapdata</code> variable exported by <code>map.jinja</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example based on
+<a href="https://github.com/saltstack-formulas/template-formula/blob/master/TEMPLATE/config/file.sls" target="_blank" rel="noopener">template-formula/TEMPLATE/config/file.sls</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># -*- coding: utf-8 -*-
+# vim: ft=sls
+
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set sls_package_install = tplroot ~ '.package.install' %}
+{%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
+{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+
+include:
+  - {{ sls_package_install }}
+
+TEMPLATE-config-file-file-managed:
+  file.managed:
+    - name: {{ TEMPLATE.config }}
+    - source: {{ files_switch(['example.tmpl'],
+                              lookup='TEMPLATE-config-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: root
+    - group: {{ TEMPLATE.rootgroup }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        TEMPLATE: {{ TEMPLATE | json }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This <code>sls</code> file expose a <code>TEMPLATE</code> context variable to the jinja
+template which could be used like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-jinja hljs" data-lang="jinja">########################################################################
+# File managed by Salt at &lt;{{ source }}&gt;.
+# Your changes will be overwritten.
+########################################################################
+
+This is another example file from SaltStack template-formula.
+
+# This is here for testing purposes
+{{ TEMPLATE | json }}
+
+winner of the merge: {{ TEMPLATE['winner'] }}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="TOFS_pattern.html">TOFS: A pattern for using SaltStack</a></span>
+  <span class="next"><a href="../../apache-formula/1.1.3/README.html">apache-formula</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using a customised version of the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/tabs-block-behavior.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
