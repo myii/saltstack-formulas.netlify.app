@@ -27,7 +27,7 @@ all of your commit messages are in the correct format.
 === Automation of multiple processes
 
 This formula uses
-https://github.com/semantic-release/semantic-release[semantic-release]
+https://github.com/semantic-release/semantic-release[semantic-release^]
 for automating numerous processes such as
 bumping the version number appropriately,
 creating new tags/releases
@@ -38,7 +38,7 @@ which is then used for the rest of the automation.
 
 Full details are available in the upstream docs regarding the
 https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines[Angular
-Commit Message Conventions].
+Commit Message Conventions^].
 The key factor is that the first line of the commit message must follow this format:
 
 .Commit message format
@@ -67,21 +67,21 @@ ____
 === Linting commit messages in Travis CI
 
 This formula uses
-https://github.com/conventional-changelog/commitlint[commitlint]
+https://github.com/conventional-changelog/commitlint[commitlint^]
 for checking commit messages during CI testing.
 This ensures that they are in accordance with the `semantic-release` settings.
 
 For more details about the default settings,
 refer back to the `commitlint`
 https://conventional-changelog.github.io/commitlint/#/reference-rules[reference
-rules].
+rules^].
 
 [#commit_type_vs_version_bump]
 === Relationship between commit type and version bump
 
 This formula applies some customisations to the defaults,
 as outlined in the table below, based upon the
-https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type[type]
+https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type[type^]
 of the commit:
 
 .Commit type vs. version bump
@@ -202,11 +202,11 @@ that currently exists while this _Antora_ solution is being evaluated.
 === Toolchain
 
 The documentation for this formula is written in
-https://en.wikipedia.org/wiki/ReStructuredText[reStructuredText]
+https://en.wikipedia.org/wiki/ReStructuredText[reStructuredText^]
 (also known as RST, ReST, or reST).
 It is built by
-https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)[Sphinx]
-and hosted on https://en.wikipedia.org/wiki/Read_the_Docs[Read the Docs].
+https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)[Sphinx^]
+and hosted on https://en.wikipedia.org/wiki/Read_the_Docs[Read the Docs^].
 
 [#adding_a_new_page]
 === Adding a new page
@@ -228,7 +228,7 @@ This ensures consistency across the documentation for this formula.
 The heading symbols have been selected in accordance to the
 output rendered by the
 https://github.com/miyakogi/m2r#restrictions[Markdown to
-reStructuredText converter]
+reStructuredText converter^]
 we are using for some of the pages of this documentation.
 
 [#saltstack_formulas_rst_page_template]
