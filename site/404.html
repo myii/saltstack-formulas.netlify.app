@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Page Not Found :: SaltStack Formulas</title>
-    <meta name="generator" content="Antora 3.0.0-alpha.4">
+    <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="/_/css/site.css">
     <link rel="stylesheet" href="/_/css/site-extra.css">
     <script>var uiRootPath = '/_'</script>
@@ -53,7 +53,6 @@
         <!--   </div> -->
         <!-- </div> -->
 
-        
         <!-- Have these in a separate `div`? -->
 
         <!-- Repos -->
@@ -146,6 +145,12 @@
           <img src="/_/img/ssf/Kibana.png" alt="Kibana" style="width:24px;height:24px;" />
         </a>
 
+        <!-- Search -->
+        <div class="navbar-item-divider"></div> 
+        <div class="navbar-item">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+        
       </div>
     </div>
   </nav>
@@ -1052,6 +1057,9 @@ If you typed the URL of this page manually, please double check that you entered
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
 <script src="/_/js/site.js"></script>
+<script src="/_/js/vendor/lunr.js"></script>
+<script src="/_/js/vendor/search.js" id="search-script" data-base-path="https://saltstack-formulas.netlify.app" data-page-path=""></script>
+<script async src="/_/../search-index.js"></script>
 <script src="/_/js/vendor/tabs-block-behavior.js"></script>
 <script async src="/_/js/vendor/highlight.js"></script>
   </body>
